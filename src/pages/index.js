@@ -4,13 +4,13 @@ import { Product, FooterBanner, HeroBanner, Footer  } from '../../components';
 const Home = ({ products, bannerData }) => {
   return (
     <div>
-      {console.log("product.name : ", products)}
+      {/* {console.log("product.name : ", products)} */}
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
       {/* {console.log("products:",products)}      */}
       {/* {console.log("bannerData:",bannerData[0].smallText)}      */}
       <div className="products-heading">
         <h2>Best Seller Products</h2>
-        <p>speaker There are many variations passages</p>
+        <p>There are many models</p>
       </div>
 
       <div className="products-container">

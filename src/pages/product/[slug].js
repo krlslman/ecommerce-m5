@@ -1,55 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { Product } from '../../../components';
+import { useStateContext } from '../../../context/StateContext';
 import { urlFor, client } from '../../../lib/client';
 
 const ProductDetails = ({ products, product }) => {
     const { image, name, slug, price } = product;
+    const [indexImg, setIndexImg] = useState(0); 
+    const { qty, incQty, decQty, onAdd } = useStateContext();
+
   return (
     <div>
         <div className="product-detail-container">
             <div>
                 <div className="image-container">
-                    <img src={urlFor(image && image[0])} className="product-detail-image"></img>                    
+                    <img src={urlFor(image && image[indexImg])} className="product-detail-image" alt=''/>                    
                 </div>
-                {/* <div className="small-images-container">
+                <div className="small-images-container">
                     {image?.map((item, i) => (
-                    <img 
-                        src={urlFor(item)}
-                        className=""
-                        onMouseEnter=""
-                    />
+                        <img 
+                            key={item.id}
+                            src={urlFor(item)}
+                            className={i === indexImg ? "small-image selected-image" : "small-image"}
+                            onMouseEnter={() => setIndexImg(i)}
+                            alt='asd'
+                        />
                     ))}
-                </div> */}
-                 <div className="product-detail-desc">
-                    <h1>{name}</h1>
-                    <div className="reviews">
-                        <div>
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiOutlineStar />
-                        </div>
-                        <p>
-                        (20)
-                        </p>
+                </div>               
+            </div>
+            
+            <div className="product-detail-desc">
+                <h1>{name}</h1>
+                <div className="reviews">
+                    <div>
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    <AiFillStar />
+                    {/* <AiOutlineStar /> */}
                     </div>
-                    <h4>Details: </h4>
-                    <p>{}</p>
-                    <p className="price">${price}</p>
-                    <div className="quantity">
-                        <h3>Quantity:</h3>
-                        <p className="quantity-desc">
-                        <span className="minus" onClick=""><AiOutlineMinus /></span>
-                        <span className="num">0</span>
-                        <span className="plus" onClick=""><AiOutlinePlus /></span>
-                        </p>
-                    </div>
-                    <div className="buttons">
-                        <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-                        <button type="button" className="buy-now" onClick="">Buy Now</button>
-                    </div>
+                    <p>
+                    (20)
+                    </p>
+                </div>
+                <h4>Details: </h4>
+                <p>{}</p>
+                <p className="price">${price}</p>
+                <div className="quantity">
+                    <h3>Quantity:</h3>
+                    <p className="quantity-desc">
+                    <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+                    <span className="num">{qty}</span>
+                    <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
+                    </p>
+                </div>
+                <div className="buttons">
+                    <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
+                    <button type="button" className="buy-now" onClick="">Buy Now</button>
                 </div>
             </div>
         </div>
@@ -61,7 +69,6 @@ const ProductDetails = ({ products, product }) => {
               {products.map((item) => (
                 <Product key={item._id} product={item} />
               ))}
-              {/* {console.log(products)} */}
             </div>
           </div>
       </div>
@@ -76,6 +83,7 @@ export const getStaticPaths = async () => {
             current
         }
     } `
+
     // Based on that
     const products = await client.fetch(query);
     // Then we generate our paths
@@ -84,6 +92,7 @@ export const getStaticPaths = async () => {
             slug: product.slug.current
         }
     }));
+    
     // getStaticProps runs in the background when using fallback: true. getStaticProps is called before initial render when using fallback: 'blocking'
     return {
         paths,
@@ -100,7 +109,6 @@ export const getStaticProps = async ({ params: {slug} }) => {
     const product = await client.fetch(query);
     // To get all query products
     const products = await client.fetch(productsQuery);
-    console.log("istanbul: ",product);
 
     return {
       props: { products, product }
