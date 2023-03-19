@@ -9,10 +9,11 @@ import { urlFor } from '../lib/client';
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart } = useStateContext();
-
+  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+  // const handle
   return (
-    <div className="cart-wrapper" ref={cartRef}>
+    <div className="cart-wrapper" ref={cartRef} 
+    onBlur={() => setShowCart(false)} >
       <div className="cart-container">
       <button
         type="button"
