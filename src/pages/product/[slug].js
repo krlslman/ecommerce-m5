@@ -22,7 +22,7 @@ const ProductDetails = ({ products, product }) => {
                 <div className="small-images-container">
                     {image?.map((item, i) => (
                         <img 
-                            key={item.id}
+                            key={i}
                             src={urlFor(item)}
                             className={i === indexImg ? "small-image selected-image" : "small-image"}
                             onMouseEnter={() => setIndexImg(i)}
