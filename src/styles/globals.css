@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 html,
 body, * {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Roboto', sans-serif, '-apple-system', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
 
@@ -20,27 +22,80 @@ a {
   max-width: 100vw; 
   margin: auto;
   width: 100%;
-  }
+}
+.container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
 
 .main-container{
-max-width: 1400px; 
+/* max-width: 1400px;  */
 margin: auto;
 width: 100%;
 
 }
 .layout{
-  padding: 0 10px 10px 10px;
+  /* padding: 0 10px 10px 10px; */
 }
 
 .navbar-container{
+  background-color: #eae4d3;
   display: flex;
   position: sticky;
+  top: 0;
+  z-index: 800;
   justify-content: space-between;
-  margin: 6px 18px;
-  position: relative;
-  height: 80px;
-  max-height: 80px;
+  padding: 6px 10%;
+  width: 100vw;
+  min-width: 100vw;
+  height: 70px;
+  max-height: 70px;
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(10px);
+  transition: transform 0.5s ease-in-out;
 }
+.navbar-container.hidden{
+  transform: translateY(-100%);  
+}
+.navbar-container.visible{
+  transform: translateY(0);
+}
+.logo{
+  color: gray;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo:hover{
+  cursor: pointer;
+}
+
+.cart-icon{
+  font-size: 25px;
+  color: gray;
+  cursor: pointer;
+  position: relative;
+  transition: transform .4s ease;
+  border: none;
+  background-color: transparent;
+}
+.cart-icon:hover{
+  transform: scale(1.1,1.1);
+}
+.cart-item-qty{
+  position: absolute;
+  right: -8px;
+  font-size: 12px;
+  color: #eee;
+  background-color: #f02d34;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 600;
+}
+
 .marquee-text{
   font-size: 29px;
   font-weight: 600;
@@ -73,39 +128,7 @@ width: 100%;
     -webkit-text-stroke: 1px #f02d34;
     margin-left: 6px;
 }
-.logo{
-  color: gray;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 
-}
-.cart-icon{
-  font-size: 25px;
-  color: gray;
-  cursor: pointer;
-  position: relative;
-  transition: transform .4s ease;
-  border: none;
-  background-color: transparent;
-}
-.cart-icon:hover{
-  transform: scale(1.1,1.1);
-}
-.cart-item-qty{
-  position: absolute;
-  right: -8px;
-  font-size: 12px;
-  color: #eee;
-  background-color: #f02d34;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  text-align: center;
-  font-weight: 600;
-
-}
 .products-container{
   display: flex;
   flex-wrap: wrap;
@@ -141,40 +164,38 @@ width: 100%;
 }
 
 .hero-banner-container{
-  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-top: 80px; */
+  padding: 100px 20%;
   background-color: #ffad75;
-  /* border-radius: 15px; */
-  position: relative;
-  height: 500px;
-  line-height: 0.9; 
+  /* position: relative; */
+  height: auto;
+  min-height: 700px;
+  line-height: 1.2; 
   width: 100%;
+  background-position:  center center  ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 70%;
 
 }
 .hero-banner-container .beats-solo{
   font-size: 20px;
+  filter: drop-shadow(2px 4px 6px #fac09b);
 }
-.hero-banner-container button{
-   border-radius: 15px;
-  padding: 10px 16px;
-  background-color: #000;
-  color: white;
-  border: none;
-  margin-top: 40px;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  z-index:10000 !important;
-}
-
 .hero-banner-container h3{
   font-size: 4rem;
   margin-top: 4px;
+  filter: drop-shadow(2px 4px 0px #fac09b);
 }
 .hero-banner-container h1{
   color: white;
   font-size: 10em;
   margin-left: -20px;
   text-transform: uppercase;
+  filter: drop-shadow(4px 4px 0px #000);
 }
 .hero-banner-image{
   position: absolute;
@@ -184,29 +205,46 @@ width: 100%;
   height: auto;
   object-fit: contain; 
 }
+.hero-banner-container button{
+  border-radius: 15px;
+ padding: 16px 24px;
+ /* background-color: #000; */
+ background-color: transparent;
+ color: white;
+ border: 1px solid white;
+ margin-top: 40px;
+ font-size: 18px;
+ font-weight: 500;
+ cursor: pointer;
+ z-index:10000 !important;
+}
+.hero-banner-container button:hover{
+  border: none;
+   background-color: #000;
+}
 
 
 .desc{
 position: absolute;
 right: 10%;
-bottom: 5%;
+/* bottom: 5%; */
 width: 300px;
 line-height: 1.3;
 display: flex;
 flex-direction: column;
- color: #324d67;
+ /* color: #324d67; */
 
 }
 .desc p{
-  color: #5f5f5f;
+  color: #fbfbfb;
   font-weight: 100;
 text-align: end;
 }
 .desc h5{
   margin-bottom: 12px;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
-  /* color: black; */
+  color: #fbfbfb;
   align-self: flex-end;
 }
 .products-heading{
@@ -691,18 +729,17 @@ padding: 6px;
   .hero-banner-image{
     width: 77%;
     height: 62%;
-    top: -2%;
-    right: -6%;
+    position: inherit;
   }
   .footer-banner-container{
     height: 560px;
     margin-top: 80px;
+    height: auto;
   }
   .footer-banner-image{
+    position: inherit;
     width: 77%;
-    left: 30%;
-    top: 6%;
-    height: 56%
+    
   }
   .banner-desc .left h3{
     font-weight: 900;
@@ -727,6 +764,7 @@ padding: 6px;
   }
   .hero-banner-container{
     line-height: 1.3;
+    height: auto;
   }
   .hero-banner-container h1{
     font-size: 50px;

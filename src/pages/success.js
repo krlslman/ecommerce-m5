@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { BsBagCheckFill } from 'react-icons/bs';
-import { HiBadgeCheck } from 'react-icons/hi';
-import { BsPatchCheck } from 'react-icons/bs';
-import { FiCheckCircle } from 'react-icons/fi';
-import { BsBookmarkCheckFill } from 'react-icons/bs';
-import { BsCartCheckFill } from 'react-icons/bs';
 
 import { useStateContext } from '../../context/StateContext';
 
