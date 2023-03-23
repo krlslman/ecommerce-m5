@@ -1,14 +1,14 @@
 //* This page (slug) is actually PRODUCT DETAILS page for a specific product. But dynamic.
 
 import React, { useState } from 'react'
-import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlinePlus, AiFillStar } from 'react-icons/ai';
 import { Product } from '../../../components';
 import { useStateContext } from '../../../context/StateContext';
 import { urlFor, client } from '../../../lib/client';
 
 
 const ProductDetails = ({ products, product }) => {
-    const { image, name, slug, price } = product;
+    const { image, name, price } = product; // slug?
     const [indexImg, setIndexImg] = useState(0); 
     const { qty, incQty, decQty, onAdd } = useStateContext();
 

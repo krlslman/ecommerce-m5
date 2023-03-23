@@ -1,23 +1,23 @@
 import React from 'react';
 import { client } from '../../lib/client';
-import { Product, FooterBanner, HeroBanner, Footer  } from '../../components';
+import { Product, FooterBanner, HeroBanner, Categories  } from '../../components';
+
 const Home = ({ products, bannerData }) => {
+  
   return (
     <div>
-      {/* {console.log("product.name : ", products)} */}
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-      {/* {console.log("products:",products)}      */}
-      {/* {console.log("bannerData:",bannerData[0].smallText)}      */}
+      <Categories products={products.length && products} />
       <div className="products-heading">
         <h2>Best Seller Products</h2>
         <p>There are many models</p>
       </div>
 
-      <div className="products-container">
+      <div className="products-container container">
         {/* {products?.map(
           (product) => product.name )} */}
           
-        {products?.map(
+        {products?.slice(0,9).map(
           (product) => <Product key={ product._id } product={product} /> 
         )}
       </div>
@@ -26,6 +26,7 @@ const Home = ({ products, bannerData }) => {
     </div>
   )
 }
+export default Home
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"]';
@@ -39,4 +40,3 @@ export const getServerSideProps = async () => {
   }
 }
 
-export default Home
