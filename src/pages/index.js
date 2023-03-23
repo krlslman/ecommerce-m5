@@ -1,6 +1,6 @@
 import React from 'react';
 import { client } from '../../lib/client';
-import { Product, FooterBanner, HeroBanner, Categories  } from '../../components';
+import { FooterBanner, HeroBanner, Categories, SupportArea, BestSellers  } from '../../components';
 
 const Home = ({ products, bannerData }) => {
   
@@ -8,20 +8,8 @@ const Home = ({ products, bannerData }) => {
     <div>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
       <Categories products={products.length && products} />
-      <div className="products-heading">
-        <h2>Best Seller Products</h2>
-        <p>There are many models</p>
-      </div>
-
-      <div className="products-container container">
-        {/* {products?.map(
-          (product) => product.name )} */}
-          
-        {products?.slice(0,9).map(
-          (product) => <Product key={ product._id } product={product} /> 
-        )}
-      </div>
-
+      <SupportArea />
+      <BestSellers products={products} />
       <FooterBanner footerBanner={bannerData[0]} />
     </div>
   )

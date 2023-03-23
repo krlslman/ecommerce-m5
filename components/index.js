@@ -6,3 +6,5 @@ export { default as Layout } from './Layout';
 export { default as Navbar } from './Navbar';
 export { default as Product } from './Product';
 export { default as Categories } from './Categories';
+export { default as SupportArea } from './SupportArea';
+export { default as BestSellers } from './BestSellers';

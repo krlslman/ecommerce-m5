@@ -36,7 +36,7 @@ export const StateContext = ({ children }) => {
 
     //! This function is used when delete button of a product (in cart) is clicked
     const onRemove = (product) => {
-        foundProduct = cartItems.find((item) => item._id === product._id);
+        let foundProduct = cartItems.find((item) => item._id === product._id);
         const newCartItems = cartItems.filter((item) => item._id !== product._id);
     
         setTotalPrice((prevTotalPrice) => prevTotalPrice -foundProduct.price * foundProduct.quantity);
