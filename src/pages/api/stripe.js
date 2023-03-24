@@ -7,9 +7,6 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    // console.log("cartItems3 :", req.body.cartItems);
-    // console.log("***POST altı:",req.body[0].image);
-    console.log("***POST altı:", req.body);
     try {
       const params = {
         submit_type: "pay",
@@ -31,7 +28,6 @@ export default async function handler(req, res) {
             .replace("-webp", ".webp")
             .replace("-jpg", ".jpg")
             .replace("-jpeg", ".jpeg");
-          // console.log("IMAGE : ", newImage);
 
           return {
             price_data: {
@@ -59,11 +55,9 @@ export default async function handler(req, res) {
       res.status(200).json(session);
     } catch (err) {
       res.status(err.statusCode || 500).json(err.message);
-      // console.log("***Catch :");
     }
   } else {
     res.setHeader("Allow", "POST");
     res.status(405).end("Method Not Allowed");
   }
-  // console.log("***FINAL : ");
 }

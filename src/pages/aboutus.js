@@ -15,15 +15,15 @@ const Aboutus = () => {
       <h3 className="sub-header">Our Story</h3>
       <div className="photo-and-text-column">
         <div className="photo-column">
-          {/* <img
+          {/* <img alt="asdasd"
             src="https://images.unsplash.com/photo-1674574124649-778f9afc0e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
             width={350}
           ></img> */}
-          <img
+          <img alt="Aboutus image 1"
             src="https://images.unsplash.com/photo-1513682121497-80211f36a7d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
             
           ></img>
-          <img
+          <img alt="Aboutus image 2"
             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
             
           ></img>

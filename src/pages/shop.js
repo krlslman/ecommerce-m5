@@ -4,7 +4,6 @@ import { client } from '../../lib/client';
 
 const Shop = ({ products, category }) => {
   const [filteredProducts, setFilteredProducts] = useState(products);
-  console.log("dasdasd:",category);
 
   useEffect(() => {
     if (category) {
