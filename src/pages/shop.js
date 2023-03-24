@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Product } from '../../components'
 import { client } from '../../lib/client';
 
-const Shop = ({ products }) => {
-    console.log("asdasd: ",products);
+const Shop = ({ products, category }) => {
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  console.log("dasdasd:",category);
+
+  useEffect(() => {
+    if (category) {
+      const filtered = products.filter(product => product.category === category);
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts(products)
+    }
+  }, [products, category])
   return (
     <div>
         <div className="products-heading">
@@ -15,7 +25,7 @@ const Shop = ({ products }) => {
         {/* {products?.map(
           (product) => product.name )} */}
 
-        {products?.slice(0, 21).map((product) => (
+        {filteredProducts?.map((product) => (
           <Product key={product._id} product={product} />
         ))}
       </div>
@@ -25,11 +35,12 @@ const Shop = ({ products }) => {
 
 export default Shop
 
-export const getServerSideProps = async () => {
-    const query = '*[_type == "product"]';
-    const products = await client.fetch(query);  
-    return {
-      props: { products }
-    }
+export const getServerSideProps = async ({ query }) => {
+  const category = query.category || '';
+  const queryStr = category ? `*[_type == "product" && category == "${category}"]` : `*[_type == "product"]`;
+  const products = await client.fetch(queryStr);
+  return {
+    props: { products }
   }
+}
   
