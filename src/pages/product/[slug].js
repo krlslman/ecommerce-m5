@@ -8,7 +8,7 @@ import { urlFor, client } from '../../../lib/client';
 
 
 const ProductDetails = ({ products, product }) => {
-    const { image, name, price } = product; // slug?
+    const { image, name, price } = product;
     const [indexImg, setIndexImg] = useState(0); 
     const { qty, incQty, decQty, onAdd } = useStateContext();
 

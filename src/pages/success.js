@@ -12,7 +12,7 @@ const Success = () => {
     setCartItems([]);
     setTotalPrice(0);
     setTotalQuantities(0);
-  } ); // TODO : empty dependency array gives warning
+  }, [] ); // TODO : empty dependency array gives warning
 
   
   return (
