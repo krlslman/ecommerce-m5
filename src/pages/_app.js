@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 import { StateContext } from '../../context/StateContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.scss';
-import '../styles/custom.css';
+// import '../styles/custom.css';
 
 function App({ Component, pageProps }) {
   useEffect(() => {
