@@ -52,7 +52,7 @@ const Cart = () => {
               <button
                 type="button"
                 onClick={() => setShowCart(false)}
-                className="btn"
+                className="btn btn-fill"
               >
                 Continue Shopping
               </button>
@@ -97,14 +97,17 @@ const Cart = () => {
             <div className='cart-bottom'>
               <div className='total'>
                 <h3>Subtotal:</h3>
-                <h3>${totalPrice}</h3>
+                <h3><strong>${totalPrice}</strong></h3>
               </div>
+              
+              <div className="d-flex justify-content-end">
+                <button className="btn btn-fill m-0 mt-3 mt-lg-3" type='button' onClick={handleCheckout} >
+                  Pay with Stripe
+                </button>
+              </div>
+              
             </div>
-            <div className="btn-container">
-              <button className="btn" type='button' onClick={handleCheckout} >
-                Pay with Stripe
-              </button>
-            </div>
+            
           </>
         )}
       </div>

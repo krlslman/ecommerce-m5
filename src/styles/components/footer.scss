@@ -1,0 +1,97 @@
+.footer-basic {
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f6f8;
+    color: #4b4c4d;
+    // height: 250px;
+    padding-top: 1rem;
+  
+    footer.container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      .footer-logo {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+  
+        svg {
+          // Styling for the svg element inside the logo section
+        }
+        a {
+          // Styling for the link inside the logo section
+          p {
+            font-weight: 400;
+          }
+        }
+      }
+  
+      ul.navbar-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            gap: 2rem;
+        li.nav-item {
+            margin: 1rem auto;
+          a.nav-link {
+            // Styling for the navbar links
+          }
+        }
+      }
+  
+      .social {
+        text-align: center;
+        display: flex;
+        gap: 1rem;
+    
+        svg {
+            width: 24px;
+            height: 24px;
+            line-height: 40px;
+            display: inline-block;
+            text-align: center;
+            margin: 0 8px;
+            color: inherit;
+            opacity: 0.75; 
+            &:hover {
+                opacity: 0.9;
+                cursor: pointer;
+            }        
+            }
+      }
+    }
+    p.copyright {
+        padding-top: 55px;
+        text-align: center;
+        font-size: 13px;
+        color: #aaa;
+        margin-bottom: 0;
+        text-align: center;
+          padding: 1rem;
+          font-size: 10px;
+      }
+  }
+  
+  @media (max-width: 800px) {
+    .footer-basic {
+      height: auto;
+  
+      .container {
+        flex-direction: column;
+        height: auto;
+        max-height: fit-content;
+
+        ul.navbar-nav {
+            flex-direction: column;
+        }
+  
+        .social {
+          // margin-top: 3rem;
+        }
+      }
+    }
+  }
+  

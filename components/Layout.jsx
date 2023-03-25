@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import { Footer, Navbar } from './';
+import { Footer, Header } from './';
 
 const Layout = ({ children }) => {
   return (
@@ -9,7 +9,8 @@ const Layout = ({ children }) => {
         <title>Koral Store</title>
       </Head>
       <header>
-        <Navbar />
+        {/* <Navbar /> */}
+        <Header />
       </header>
       <main className="main-container">
         {children}

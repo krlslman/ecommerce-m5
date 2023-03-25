@@ -13,6 +13,7 @@
     "@sanity/client": "^2.11.0",
     "@sanity/image-url": "^1.0.1",
     "@stripe/stripe-js": "^1.25.0",
+    "bootstrap": "^5.2.3",
     "next": "12.1.0",
     "next-sanity-image": "^3.2.1",
     "nodemailer": "^6.9.1",
@@ -20,11 +21,11 @@
     "react-dom": "17.0.2",
     "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1",
+    "sass": "^1.60.0",
     "stripe": "^8.209.0"
   },
   "devDependencies": {
     "eslint": "8.13.0",
-    "eslint-config-next": "12.1.4",
-    "sass": "^1.59.3"
+    "eslint-config-next": "12.1.4"
   }
 }

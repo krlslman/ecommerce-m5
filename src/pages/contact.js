@@ -37,7 +37,7 @@ const Contact = () => {
             <textarea id="msg" name="name" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Your message"  rows="4"></textarea>
             <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder='Your name'/>
             <input type="email" id="email" name="name" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Your email'/>
-            <button type="submit">Submit</button>
+            <button className='btn btn-outline' type="submit">Submit</button>
           </form>
         </div>
         <div className='map'>

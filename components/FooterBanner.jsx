@@ -26,7 +26,7 @@ const FooterBanner = ({ footerBanner: { discount, largeText1, largeText2, saleTi
           <h3>{midText}</h3>
           <p>{desc}</p>
           <Link href={`/product/${product}`} passHref >
-            <button type="button">{buttonText}</button>
+            <button className='btn btn-outline btn-white-line' type="button">{buttonText}</button>
           </Link>
         </div>
 
