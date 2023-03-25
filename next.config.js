@@ -35,4 +35,5 @@ module.exports = {
       Popper: ['popper.js', 'default'],
     }),
   ],
+  optimizeFonts: false, // To enable google font usage
 };
