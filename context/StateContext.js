@@ -76,6 +76,12 @@ export const StateContext = ({ children }) => {
         // fancy way to ensure that the quantity is always at least 1
         setQty((prevQty) => Math.max(prevQty - 1, 1));
     }
+
+    //! This function is used when Buy Now button (in product detail page) is clicked
+    const buyNow = (product, quantity) => {
+      onAdd(product, quantity)
+      setShowCart(true)
+    }
     return (
         <Context.Provider value={{
             showCart,
@@ -87,6 +93,7 @@ export const StateContext = ({ children }) => {
             incQty, 
             decQty,
             onAdd,
+            buyNow,
             toggleCartItemQuanitity,
             onRemove,
             setCartItems,

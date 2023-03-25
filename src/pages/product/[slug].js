@@ -10,7 +10,7 @@ import { urlFor, client } from '../../../lib/client';
 const ProductDetails = ({ products, product }) => {
     const { image, name, price } = product;
     const [indexImg, setIndexImg] = useState(0); 
-    const { qty, incQty, decQty, onAdd } = useStateContext();
+    const { qty, incQty, decQty, onAdd, buyNow } = useStateContext();
 
   return (
     <div>
@@ -60,7 +60,7 @@ const ProductDetails = ({ products, product }) => {
                 </div>
                 <div className="buttons">
                     <button type="button" className="btn btn-outline" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-                    <button type="button" className="btn btn-fill" onClick="">Buy Now</button>
+                    <button type="button" className="btn btn-fill" onClick={() => buyNow(product, qty)}>Buy Now</button>
                 </div>
             </div>
         </div>
