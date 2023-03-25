@@ -26,12 +26,13 @@ export const StateContext = ({ children }) => {
                 }
             })
             setCartItems(updatedCardItems);
-            toast.success(`${qty} ${product.name} added to your cart`)
+            
 
         } else {
             product.quantity = quantity;
             setCartItems([ ...cartItems, { ...product } ])
         }
+        toast.success(`${qty} ${product.name} added to your cart`)
     }
 
     //! This function is used when delete button of a product (in cart) is clicked
