@@ -10,7 +10,7 @@ import getStripe from '../lib/getStripe';
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems, showCart, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -33,8 +33,8 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
-      <div className="cart-container">
+    <div className="cart-wrapper" ref={cartRef} style={{ transform: showCart ? 'translateX(0)' : 'translateX(100%)', transition: 'all 0.5s ease-in-out' }}>
+      <div className="cart-container" style={{ transform: showCart ? 'translateX(0)' : 'translateX(100%)', transition: 'all 0.5s ease-in-out' }}>
       <button
         type="button"
         className="cart-heading"

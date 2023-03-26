@@ -162,18 +162,31 @@ filter: drop-shadow(2px 2px 2px black);
 .contact .container.main{
   margin: 2rem auto;
 }
-.contact .container.flex{
-  display: flex;
+.contact .container .row{
+  // display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .contact .container .row {
+    flex-direction: column;
+  }
 }
 .contact .container.flex img{
   width: 450px;
+  max-width: 450px;
   height: 400px;
   object-fit: cover;
 }
 .contact .letter-container{
-  width: 500px;
+  // width: 500px;
   margin: auto;
+  flex: 1;
+}
+.contact .map{
+  flex: 1;
+}.contact .map img{
+  width: inherit;
 }
 .contact form{
   display: flex;
@@ -184,7 +197,7 @@ filter: drop-shadow(2px 2px 2px black);
   margin: 50px auto;
 }
 .contact textarea{
-  width: 500px;
+  width: 80%;
   max-width: 500px;
   border: none;
   border-bottom: rgb(205, 205, 205) solid 1px;
@@ -248,6 +261,7 @@ filter: drop-shadow(2px 2px 2px black);
   display: flex;
   gap:  1rem;
   text-align: justify;
+  
 }
 .photo-column{
   display: flex;
