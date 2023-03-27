@@ -6,9 +6,9 @@ import { urlFor } from '../lib/client';
 const Product = ({ product: { image, name, slug, price } }) => {
   // let urlFor_generated = urlFor(image && image[0]); DENEME
   return (    
-    <div>
+    <div className='product-card-wrapper col-6 col-lg-3'>
       <Link href={`/product/${slug.current}`} passHref >
-        <div className="product-card">
+        <div className="product-card p-1 p-lg-3">
           <img 
             src={urlFor(image && image[0])}
             width={250}

@@ -1,5 +1,6 @@
 // import Link from "next/link";
 import Link from "next/link";
+import { useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { useStateContext } from "../context/StateContext";
@@ -8,7 +9,12 @@ import Cart from "./Cart";
 
 const Header = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const [ searchExpand, setSearchExpand ] = useState(false)
 
+  const toggleSearchExpand = () => {
+    setSearchExpand(!searchExpand);
+  }
+  
   return (
     // <header className={` navbar2 ${show ? "visible" : "hidden"} `}>
     <header className={` navbar2 `}>
@@ -37,6 +43,13 @@ const Header = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
+            <button className="cart-icon"
+              type="button"
+              onClick={() => setShowCart(true)}
+            >
+              <AiOutlineShopping />
+              <span className="cart-item-qty">{totalQuantities}</span>
+            </button>
           </button>          
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -101,19 +114,20 @@ const Header = () => {
               className="d-flex flex-row-reverse justify-content-start align-items-center"
               role="search"
             >
-              <BiSearch />
+              <BiSearch className="search-icon" onClick={()=>toggleSearchExpand(!searchExpand)}/>
               <input
-                className="form-control me-2 "
+                // className="form-control me-2 "
+                className={`form-control me-2 ${searchExpand ? "expanded" : ""}`}
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onBlur={()=>toggleSearchExpand(!searchExpand)}
               />
               {/* <button className="btn btn-navbar btn-outline-success" type="submit">Search</button> */}
             </form>
           </div>
-          <button
+          <button className="cart-icon d-none d-lg-block"
             type="button"
-            className="cart-icon"
             onClick={() => setShowCart(true)}
           >
             <AiOutlineShopping />

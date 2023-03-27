@@ -9,6 +9,7 @@
       padding: 0;
       margin: auto;
       max-width: 1200px;
+      overflow: hidden;
   
       .container-fluid {
         // padding: 0;
@@ -60,16 +61,25 @@
         .navbar-toggler-icon:focus {
           box-shadow: none;
         }      
-        .form-control {
+        input.form-control {
+          width: 0px;
+          font-size: small;
           background-color: transparent;
-          border: none;
-          border-bottom: 1px solid #cccccc;
+          border: none;   
+          border-bottom: 1px solid transparent;       
           border-radius: 0px;
+          transition: width 0.3s;
+          &.expanded {
+            width: 150px;
+            border-bottom: 1px solid #cccccc;
+            position: relative;
+            left: -7px;
+          }
         }
   
         .navbar-collapse {
           transition: all 0.3s ease-in;
-          .navbar-nav {
+          ul.navbar-nav {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -77,22 +87,22 @@
             gap: 2rem;
           }
           @media (max-width: 800px) {
-            .navbar-nav {
+            ul.navbar-nav {
               flex-direction: column;
               margin: auto;
               gap: 1rem;
             }
             form {
-              margin-top: -23px;
               position: relative;
-              top: 31px;
+              padding: 10px 0px;
             }
             form>input.form-control{
+              width: 50vw;
               max-width: 50vw;
               &::placeholder {
                 font-size: 14px;
                 font-weight: 400;
-                color: #777;
+                color: gray;
               }
             }
           }
@@ -102,10 +112,17 @@
               transform: rotate(90deg);
             }
           }
-          form svg{
-            color: #a5a5a5;
-            position: relative;
-            right: 2rem;
+          svg{ // .search-icon
+            position: absolute;
+            box-sizing: content-box;
+            z-index: 2;
+            height: 22px;
+            width: 22px;
+            padding: 5px 1rem 0px 1rem;
+            color: gray;
+          }
+          &:hover {
+            cursor: pointer;
           }
         }
         .cart-icon{
@@ -116,7 +133,7 @@
           transition: transform .4s ease;
           border: none;
           background-color: transparent;
-          margin-left: 1rem;
+          margin-left: 5px;
           &:hover{
             transform: scale(1.1,1.1);
           }
