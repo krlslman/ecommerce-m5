@@ -5,6 +5,14 @@ import { client } from "../../lib/client";
 const Shop = ({ products, category }) => {
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchProduct, setSearchProduct] = useState("")
+  const [numToShow, setNumToShow] = useState(8);
+
+  const handleShowMore = () => {
+      setNumToShow(numToShow + 4);
+  }
+  const handleShowLess = () => {
+      setNumToShow(8);
+  }
 
   useEffect(() => {
     if (category) {
@@ -44,10 +52,22 @@ const Shop = ({ products, category }) => {
             : resultsName.includes(searchTerm) 
             || resultsDetails.includes(searchTerm) ;
         })
+        .slice(0, numToShow)
         .map((product) => (
           <Product key={product._id} product={product} />
         ))}
+
+        
+
       </div>
+      <div className="show-more text-center mt-3">
+            {/* {numToShow < myCards.length && (
+                <button onClick={handleShowMore}>Show more</button>
+            )} */}
+            {numToShow < filteredProducts.length 
+              ? <button className='btn btn-outline m-5' onClick={handleShowMore}>Show more</button> 
+              : <button className='btn btn-outline m-5' onClick={handleShowLess}>Show less</button>}
+        </div>
     </div>
   );
 };

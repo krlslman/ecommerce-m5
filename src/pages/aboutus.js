@@ -24,8 +24,9 @@ const Aboutus = () => {
             
           ></img>
           <img alt="Aboutus image 2"
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-            
+            // src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+            src="https://i.ibb.co/NTBK1Hf/selmankoral.png"
+            style={{filter:"saturate(0.1) contrast(1.2)"}}
           ></img>
         </div>
         <div className="text-column">

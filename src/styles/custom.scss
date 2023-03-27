@@ -45,15 +45,17 @@ h2 {
   font-size: 40px;
   font-weight:lighter !important;
 }
+.layout{
+  /* padding: 0 10px 10px 10px; */
+  // min-height: 100vh;
+}
 .main-container{
   /* max-width: 1400px;  */
   margin: auto;
   width: 100%;
+  min-height: 70vh;
+  }
   
-  }
-  .layout{
-    /* padding: 0 10px 10px 10px; */
-  }
   .container {
     max-width: 1120px;
     margin: auto;
