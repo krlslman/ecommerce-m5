@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
         <title>Koral Store</title>
       </Head>
       <header>
-        {/* <Navbar /> */}
         <Header />
       </header>
       <main className="main-container">

@@ -13,7 +13,7 @@ const BestSellers = ({ products }) => {
         {/* {products?.map(
           (product) => product.name )} */}
 
-        {products?.slice(9, 15).map((product) => (
+        {products?.slice(9, 17).map((product) => (
           <Product key={product._id} product={product} />
         ))}
       </div>

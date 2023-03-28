@@ -21,25 +21,21 @@
           align-items: center;
           margin: 0px;
           cursor: pointer;
-  
-          img {
-            width: 100%;
+          width: 100%;
+          max-width: 250px;
+          height: 60px;
+          object-fit: contain;
+        }
+        @media (max-width: 800px) {
+          .navbar-brand {
+            max-width: 270px;
             height: 60px;
             object-fit: contain;
-          }
-          @media (max-width: 800px) {
-            img {
-              max-width: 270px;
-              height: 60px;
-              object-fit: contain;
-            }
           }
         }
         .navbar-toggler {
           padding: 0px;
           border: none;
-  
-  
         }
         .navbar-toggler { // closed-menu
           .navbar-toggler-icon { // Arrow Down
@@ -97,13 +93,15 @@
               padding: 10px 0px;
             }
             form>input.form-control{
-              width: 50vw;
               max-width: 50vw;
               &::placeholder {
                 font-size: 14px;
                 font-weight: 400;
                 color: gray;
               }
+            }
+            form>input.form-control.expanded{
+              width: 50vw;
             }
           }
           .navbar-collapse.show {

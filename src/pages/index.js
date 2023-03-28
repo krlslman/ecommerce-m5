@@ -27,4 +27,3 @@ export const getServerSideProps = async () => {
     props: { products, bannerData }
   }
 }
-

@@ -15,12 +15,10 @@
         width: fit-content;
         display: flex;
         align-items: center;
-  
-        svg {
-          // Styling for the svg element inside the logo section
-        }
+        max-width: 300px;
+        padding: 1rem ;
+        cursor: pointer;
         a {
-          // Styling for the link inside the logo section
           p {
             font-weight: 400;
           }
@@ -36,13 +34,12 @@
             gap: 2rem;
         li.nav-item {
             margin: 1rem auto;
-          a.nav-link {
-            // Styling for the navbar links
-          }
         }
       }
   
       .social {
+        width: 300px;
+        justify-content: flex-end;
         text-align: center;
         display: flex;
         gap: 1rem;
@@ -89,7 +86,8 @@
         }
   
         .social {
-          // margin-top: 3rem;
+          justify-content: center !important
+          ;
         }
       }
     }

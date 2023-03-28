@@ -46,8 +46,7 @@ h2 {
   font-weight:lighter !important;
 }
 .layout{
-  /* padding: 0 10px 10px 10px; */
-  // min-height: 100vh;
+  overflow-x: hidden;
 }
 .main-container{
   /* max-width: 1400px;  */
@@ -56,8 +55,8 @@ h2 {
   min-height: 70vh;
   }
   
-  .container {
-    max-width: 1120px;
-    margin: auto;
-  }
+.container {
+  max-width: 1120px;
+  margin: auto;
+}
   

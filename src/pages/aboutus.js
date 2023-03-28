@@ -1,4 +1,7 @@
+import Image from "next/image";
 import React from "react";
+import imageUpper from '../assets/about_street.jpg'
+import imagePortre from '../assets/about_portre.jpg'
 
 const Aboutus = () => {
   return (
@@ -6,62 +9,63 @@ const Aboutus = () => {
       <h2>About us</h2>
       <h3 className="sub-header">How it started</h3>
       <p>
-        In a world inundated with emails, fake news, status updates, smartphones
-        & connected watches, we exist to bring our community back to the moment
-        and deliver that Friday at 5pm feeling every day of the week. This is
-        the moment our customer finds balance; when they stop focusing on what
-        they should be doing and instead focus on what they want to do.
+        In a world where distractions are aplenty, it is easy to lose sight of
+        what really matters - creating a space that brings you joy and comfort.
+        At American Furniture, we are on a mission to help you reclaim that
+        feeling of balance and peace in your home. Our collection of beautifully
+        crafted furniture pieces are designed to help you escape the chaos of
+        the outside world and create a sanctuary that is truly yours. With our
+        furniture, you will rediscover the simple pleasure of sitting down,
+        relaxing, and enjoying the moment - just like that Friday at 5pm
+        feeling, every day of the week. So why wait? Let us help you find the
+        perfect pieces to transform your home into a haven of tranquility and
+        style.
       </p>
       <h3 className="sub-header">Our Story</h3>
       <div className="photo-and-text-column flex-wrap flex-lg-nowrap justify-content-center">
         <div className="photo-column">
-          {/* <img alt="asdasd"
-            src="https://images.unsplash.com/photo-1674574124649-778f9afc0e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-            width={350}
-          ></img> */}
-          <img alt="Aboutus image 1"
-            src="https://images.unsplash.com/photo-1513682121497-80211f36a7d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-            
-          ></img>
-          <img alt="Aboutus image 2"
-            // src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlb3BsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-            src="https://i.ibb.co/NTBK1Hf/selmankoral.png"
-            style={{filter:"saturate(0.1) contrast(1.2)"}}
-          ></img>
+          <div className="image-item">
+            <Image src={imageUpper} alt="Aboutus image 1" />
+          </div>
+          <div className="image-item" style={{ filter: "saturate(0.1) contrast(1.2)" }}>
+            <Image src={imagePortre} alt="Aboutus image 2" />
+          </div>
         </div>
         <div className="text-column">
           <p>
-            Cherry was founded in 2011 by a group of friends who found the
-            traditional world of men’s capital-F-”Fashion” completely
-            unrelatable. We saw pictures of shirtless men with rippling ab
-            muscles, some standing outside of storefronts coating you with
-            cologne, with the message of “if only you buy our clothes you can
-            try to be as cool as we are” - and we were absolutely repelled. At
-            the same time, we saw that “shorts” in the marketplace were getting
-            longer and longer, with more and more fabric/pocketing/zip-ties &
-            whoseewhatsits all over them. Where were the proper length men’s
-            shorts that defined generations of shortsmen? Not only were shorts
-            becoming completely unrecognizable, but they were also losing their
-            personality, their craftsmanship. No one was focusing on this
-            forgotten category of men’s apparel, when it’s a product that’s so
-            vital to get right. Finally, we founded the company in 2011, just 3
-            years after the financial crisis, 4 years after the launch of the
-            first iPhone, and in the wake of the rapid rise of Facebook,
-            Linkedin and other social networking apps. People were more
-            stressed, comparing their lives to others on social media, and
-            allowing work to overtake more and more of the work-life balance.
-            Enter Cherry - our visceral and irreverent response to all of the
-            above. We launched in September of 2011 and were sold out for 2+
-            years of our core casual shorts product. In the subsequent years we
-            launched swim trunks, aloha shirts, sport shorts, lounge shorts,
-            performance polos, t-shirts, hoodies, jackets, and quarter to round
-            out the year-round Weekend Wardrobe. Throughout, we maintained a
-            consistent focus on building the perfect product for your Weekend,
-            and wove every piece of fabric around that objective. Now, we are
-            proud to say we have the most well-rounded,
-            custom-built-for-the-weekend apparel on the planet and, not only
-            that, a brand built by, and for, our community and 100% centered on
-            that Friday at 5pm feeling.
+            At American Furniture, we believe that furniture is more than just a
+            functional item - it is a reflection of who you are and what you
+            value. That is why we were founded with a mission to create a
+            different kind of furniture shopping experience, one that is centered
+            on our customers and their needs. We know that the traditional
+            furniture industry can be overwhelming and unrelatable, with a focus
+            on trendy, mass-produced pieces that lack personality and
+            craftsmanship. But we also know that furniture is an investment that
+            should last for years to come, and that is why we take the time to
+            carefully curate every piece in our collection. From classic,
+            timeless designs to modern, cutting-edge styles, we offer furniture
+            that not only looks great, but also stands the test of time. We are all 
+            about that Friday at 5pm feeling - that moment
+            when you can finally relax and enjoy the space you have created. We
+            understand that life can be busy and stressful, and that is why we
+            believe your home should be a sanctuary where you can escape the
+            chaos and find peace. With our furniture, you can create a space
+            that is uniquely yours, filled with pieces that bring you joy and
+            comfort. But our mission goes beyond just selling furniture. We are
+            here to help you create a lifestyle that is centered on what really
+            matters - family, friends, and the simple pleasures of life. Whether
+            you are looking for a cozy sectional to snuggle up with your loved
+            ones or a sturdy dining table to gather around with friends, we have
+            everything you need to create a space that is perfect for your unique
+            lifestyle. And we are a brand built by and for our
+            community. We understand that furniture shopping can be overwhelming
+            and confusing, which is why we are committed to providing
+            personalized service and support every step of the way. Our team of
+            experts is always here to help you find the perfect pieces to
+            elevate your space and create that Friday at 5pm feeling every day
+            of the week. So why wait? Browse our collection today and discover
+            the perfect furniture pieces to transform your home into a haven of
+            tranquility and style.
           </p>
         </div>
       </div>

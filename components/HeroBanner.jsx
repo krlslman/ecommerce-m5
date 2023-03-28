@@ -4,7 +4,7 @@ import { urlFor } from '../lib/client';
 
 const HeroBanner = ({ heroBanner } ) => {
   return (
-    <div className='hero-banner-container' style={{ backgroundImage: `url(${urlFor(heroBanner.image)})` }}>
+    <div className='hero-banner-container' style={{ backgroundImage:  heroBanner && `url(${urlFor(heroBanner.image)})` }}>
       <div className='container'>
         <p className="beats-solo">{heroBanner.smallText}</p>
         <h3>{heroBanner.midText}</h3>

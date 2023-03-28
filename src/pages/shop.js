@@ -23,13 +23,13 @@ const Shop = ({ products, category }) => {
     } else {
       setFilteredProducts(products);
     }
-  }, [products, category]);
-
+  }, [products, category] );
+  
   return (
     <div className="products-page">
-      <div className="products-heading">
+      <div className="products-heading container m-auto mb-4">
         <h2>Products</h2>
-        <p>There are many models</p>
+        <p>We offer a wide variety of top-quality products, each crafted to meet your unique needs and preferences, ensuring your utmost satisfaction with every purchase.</p>
       </div>
       <div className="container d-flex justify-content-end">
         <div className="product-search-container me-1 pe-4">

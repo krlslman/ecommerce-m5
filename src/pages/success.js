@@ -12,7 +12,7 @@ const Success = () => {
     setCartItems([]);
     setTotalPrice(0);
     setTotalQuantities(0);
-  }, [] ); // TODO : empty dependency array gives warning
+  }, [setCartItems, setTotalPrice, setTotalQuantities] ); // TODO : empty dependency array gives warning
 
   
   return (
@@ -32,8 +32,8 @@ const Success = () => {
               order@example.com
             </a>
           </p>
-          <Link href="/" passHref>
-            <button type="button" width="300px" className="btn continue-shopping">
+          <Link href="/shop" passHref>
+            <button type="button" width="300px" className="btn btn-fill ">
               Continue Shopping
             </button>
           </Link>

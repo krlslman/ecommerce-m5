@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 //* This page (slug) is actually PRODUCT DETAILS page for a specific product. But dynamic.
 
+// import Image from 'next/image';
 import React, { useState } from 'react'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar } from 'react-icons/ai';
 import { Product } from '../../../components';
@@ -11,13 +13,15 @@ const ProductDetails = ({ products, product }) => {
     const { image, name, price } = product;
     const [indexImg, setIndexImg] = useState(0); 
     const { qty, incQty, decQty, onAdd, buyNow } = useStateContext();
-
+    // const urlFor_generated = urlFor(image && image[indexImg])
   return (
     <div>
         <div className="product-detail-container">
             <div>
                 <div className="image-container">
-                    <img src={urlFor(image && image[indexImg])} className="product-detail-image" alt=''/>                    
+                    <img src={urlFor(image && image[indexImg])} className="product-detail-image" alt='product-detail-image'/> 
+                    {/* <Image src={urlFor_generated} alt="Product Image" width={250} height={250} className="product-detail-image" /> */}
+
                 </div>
                 <div className="small-images-container">
                     {image?.map((item, i) => (
@@ -26,7 +30,7 @@ const ProductDetails = ({ products, product }) => {
                             src={urlFor(item)}
                             className={i === indexImg ? "small-image selected-image" : "small-image"}
                             onMouseEnter={() => setIndexImg(i)}
-                            alt='asd'
+                            alt='img'
                         />
                     ))}
                 </div>               

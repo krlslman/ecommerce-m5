@@ -89,8 +89,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-top: 80px; */
-  padding: 100px;
+  padding: 1rem;
   background-color: white;
   /* position: relative; */
   height: auto;
@@ -240,10 +239,12 @@ filter: drop-shadow(2px 2px 2px black);
   color: white;
 }
 /* ------------------------ABOUT US------------------------------------------------- */
-
+.aboutus > p {
+  text-align: justify;
+}
 .sub-header {
   text-align: left;
-  margin: 1rem auto ;
+  margin: 2rem auto ;
   color: #324d67;
   font-size: 30px;
   font-weight: 500;
@@ -268,10 +269,12 @@ filter: drop-shadow(2px 2px 2px black);
   flex-direction: column;
   gap: 1rem;
 }
-.photo-column img{
+.photo-column .image-item{
   width: 350px;
   height: 300px;
+  max-height: 300px;
   object-fit: cover;
+  overflow: hidden;
 }
 /* ------------------------BEST SELLERS------------------------------------------------- */
 .products-heading{
@@ -367,10 +370,24 @@ filter: drop-shadow(2px 2px 2px black);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
+
+  background-color: #488bb3;
+  background-image: conic-gradient(from 97deg at -10% 100%, #488bb3 319deg, #488bb3 15deg, #0e415f);
+  // background-image: conic-gradient(from 90deg at 45% 100%, #488bb3 90deg, #488bb3 145deg, #00446c);
+  position: relative;
+  height: auto;
+  line-height: 1;
+  color: white;
+  width: 100%;
+  margin-top: 120px;
 }
 .banner-desc{
-  display: flex ;
+  display: flex;
   justify-content: space-around;
+  background-image: url(https://i5.walmartimages.com/asr/aaf61d1e-ff17-4027-b466-d5eac12b9c67.d0565560b5373e75dbed24a3a5c799e6.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 /* .banner-desc img {
   object-fit: cover;
@@ -433,9 +450,7 @@ filter: drop-shadow(2px 2px 2px black);
   text-align: center;  
   transition: .4s cubic-bezier(0.2, 0.1, 0.38, 1);
 }
-.btn:hover{
-  
-}
+
 .btn-fill{
   color: white;
   background: linear-gradient(to left, #ec7500 50%, #232323 50%) right;
@@ -506,10 +521,7 @@ filter: drop-shadow(2px 2px 2px black);
   object-fit: contain;
   /* object-fit: cover; */
 }
-.product-detail-image:hover{
-  /* background-color: #ec7500; */
 
-}
 .small-images-container{
   display: flex;
   gap: 10px;
@@ -626,9 +638,8 @@ filter: drop-shadow(2px 2px 2px black);
 }
 .success-wrapper, .cancel-wrapper{
   background-color: white;
-  min-height: 600px;
-  width: 900px;
-  max-width: 900px;
+  // min-height: 600px;
+  width: auto;
   margin: 1rem;
   display: flex;
   flex-direction: column;
@@ -648,14 +659,13 @@ filter: drop-shadow(2px 2px 2px black);
 }
 .success-wrapper .icon-block svg{
   color: white;
-  font-size: 9rem;
-  margin-bottom: 2rem;
+  font-size: 6rem;
 }
 .success{
   width: 100%;
   margin: auto;
   background-color: #fff;
-  padding: 50px;
+  padding: 0px 50px 50px 50px;
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -705,9 +715,7 @@ filter: drop-shadow(2px 2px 2px black);
 .product-max-qty{
   margin-top: 10px;
 }
-.btn.continue-shopping{
-  background-color: #324d67;
-}
+
 
 /* ------------------Support Area--------------------------------------- */
 .support-area {
@@ -837,16 +845,21 @@ filter: drop-shadow(2px 2px 2px black);
   }
   /* -----------------HERO BANNER-------------------------------- */
   .hero-banner-container{
-    height: 560px;
+    line-height: 1.3;
+    height: calc(100vh - 60px);
   }
+  .hero-banner-container .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5rem;
+  }
+  
   .hero-banner-image{
     width: 77%;
     height: 62%;
     position: inherit;
-  }
-  .hero-banner-container{
-    line-height: 1.3;
-    height: auto;
   }
   .hero-banner-container h1{
     font-size: 50px;

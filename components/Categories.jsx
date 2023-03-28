@@ -3,7 +3,7 @@ import { urlFor } from '../lib/client';
 import { useRouter } from 'next/router';
 
 const Categories = ({products}) => {
-    const sofaCategoryProduct = products.filter(product => product.category === 'sofa' && product.slug.current === 'martin-pechy');
+    const sofaCategoryProduct = products.filter(product => product.category === 'sofa' && product.slug.current === 'marlon-corona');
     const chairCategoryProduct = products.filter(product => product.category === 'chair' && product.slug.current === 'kara-eads');
     const tableCategoryProduct = products.filter(product => product.category === 'table' && product.slug.current === 'hannah-busing');
     const chandelierCategoryProduct = products.filter(product => product.category === 'chandelier' && product.slug.current === 'pietro-piovesan');
