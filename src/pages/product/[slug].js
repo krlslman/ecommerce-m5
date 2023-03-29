@@ -13,15 +13,12 @@ const ProductDetails = ({ products, product }) => {
     const { image, name, price } = product;
     const [indexImg, setIndexImg] = useState(0); 
     const { qty, incQty, decQty, onAdd, buyNow } = useStateContext();
-    // const urlFor_generated = urlFor(image && image[indexImg])
   return (
     <div>
         <div className="product-detail-container">
             <div>
                 <div className="image-container">
                     <img src={urlFor(image && image[indexImg])} className="product-detail-image" alt='product-detail-image'/> 
-                    {/* <Image src={urlFor_generated} alt="Product Image" width={250} height={250} className="product-detail-image" /> */}
-
                 </div>
                 <div className="small-images-container">
                     {image?.map((item, i) => (

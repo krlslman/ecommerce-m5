@@ -1,7 +1,7 @@
 // import Link from "next/link";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { useStateContext } from "../context/StateContext";
@@ -11,12 +11,24 @@ import logo from "../src/assets/logo.svg";
 const Header = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   const [ searchExpand, setSearchExpand ] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const closeNavbarAfterMenuItemClick = () => {
     const navbarToggler = document.querySelector(".navbar-toggler");
     const clickEvent = new Event("click");
     navbarToggler.dispatchEvent(clickEvent);
   }
+
+  const toggleSmallScreen = () => {
+    const isSmall = window.screen.width < 800;
+    setIsSmallScreen(isSmall)
+    return isSmall;
+  }
+
+  useEffect(() => {
+    toggleSmallScreen();
+  }, [])
+  
 
   const toggleSearchExpand = () => {
     setSearchExpand(!searchExpand);    
@@ -32,24 +44,29 @@ const Header = () => {
             </Link>
           </div>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-            <button className="cart-icon"
+          <div>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button> 
+
+            { isSmallScreen && <button className="cart-icon"
               type="button"
               onClick={() => setShowCart(true)}
             >
               <AiOutlineShopping />
               <span className="cart-item-qty">{totalQuantities}</span>
-            </button>
-          </button>          
+            </button>}
+          </div>
+
+                   
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -126,13 +143,13 @@ const Header = () => {
               {/* <button className="btn btn-navbar btn-outline-success" type="submit">Search</button> */}
             </form>
           </div>
-          <button className="cart-icon d-none d-lg-block"
+          {!isSmallScreen && <button className="cart-icon d-none d-lg-block"
             type="button"
             onClick={() => setShowCart(true)}
           >
             <AiOutlineShopping />
             <span className="cart-item-qty">{totalQuantities}</span>
-          </button>
+          </button>}
         </div>
 
         {showCart && <Cart />}

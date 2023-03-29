@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
@@ -7,7 +8,6 @@ import toast from 'react-hot-toast';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
-import Image from 'next/image';
 
 const Cart = () => {
   const cartRef = useRef();
@@ -63,7 +63,7 @@ const Cart = () => {
         <div className='product-container'>
           {cartItems.length >= 1 && cartItems.map((item) => (
             <div className='product' key={item._id}>
-              <Image src={urlFor(item?.image[0])} alt="Product Image" width={500} height={500} className="cart-product-image" />
+              <img src={urlFor(item?.image[0])} className="cart-product-image" alt="Product Image"/>
 
               <div className="item-desc">
                 <div className="flex top">

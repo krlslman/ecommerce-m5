@@ -6,14 +6,17 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
-        <title>Koral Store</title>
+        <title>Koral Store</title>        
       </Head>
+
       <header>
         <Header />
       </header>
+
       <main className="main-container">
         {children}
       </main>
+      
       <footer>
         <Footer />
       </footer>
