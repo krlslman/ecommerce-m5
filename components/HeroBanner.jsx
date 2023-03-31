@@ -11,7 +11,8 @@ const HeroBanner = ({ heroBanner } ) => {
     // <div className='hero-banner-container' style={{ backgroundImage:  heroBanner && `url(${urlFor(heroBanner.image)})` }}>
     <div className='hero-banner-container' >
       <div className='hero-banner-image' >
-        <Image src={bannerCover} alt="American Furnitue Cover Image" layout='fill' placeholder="blur" />
+        <Image src={bannerCover} alt="American Furnitue Cover Image" 
+          priority layout='fill' objectFit='cover' placeholder="blur" />
       </div>
       <div className='container p-1 p-lg-5' style={{ position: "relative" }}>
         
