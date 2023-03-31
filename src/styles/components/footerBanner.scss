@@ -1,0 +1,97 @@
+.footer-banner-container {
+  background-color: #488bb3;
+  /* border-radius: 15px; */
+  position: relative;
+  height: auto;
+  line-height: 1;
+  color: white;
+  width: 100%;
+  margin-top: 120px;
+  background-image: url("https://i5.walmartimages.com/asr/aaf61d1e-ff17-4027-b466-d5eac12b9c67.d0565560b5373e75dbed24a3a5c799e6.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+
+  background-color: #488bb3;
+  background-image: conic-gradient(
+    from 97deg at -10% 100%,
+    #488bb3 319deg,
+    #488bb3 15deg,
+    #0e415f
+  );
+  // background-image: conic-gradient(from 90deg at 45% 100%, #488bb3 90deg, #488bb3 145deg, #00446c);
+  position: relative;
+  height: auto;
+  line-height: 1;
+  color: white;
+  width: 100%;
+  margin-top: 120px;
+}
+.banner-desc {
+  display: flex;
+  justify-content: space-around;
+  background-image: url(https://i5.walmartimages.com/asr/aaf61d1e-ff17-4027-b466-d5eac12b9c67.d0565560b5373e75dbed24a3a5c799e6.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+.banner-desc .left,
+.banner-desc .right {
+  padding: 100px 40px;
+}
+.banner-desc .left h3 {
+  font-weight: 900;
+  font-size: 80px;
+  margin-left: 25px;
+}
+.banner-desc .left p {
+  margin: 18px;
+}
+.footer-banner-image {
+  width: 350px;
+  height: 100%;
+  object-fit: cover;
+  left: 25%;
+}
+.banner-desc .right {
+  line-height: 1.4;
+}
+.banner-desc .right h3 {
+  font-weight: 800;
+  font-size: 60px;
+}
+.banner-desc .right p {
+  font-size: 18px;
+}
+.banner-desc .right .company-desc {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+//! --------------- RESPONSIVE --------------------
+
+@media screen and (max-width: 800px) {
+    .footer-banner-container{
+        height: 560px;
+        margin-top: 80px;
+        height: auto;
+      }
+      .banner-desc .left h3{
+        font-weight: 900;
+        font-size: 50px;
+        margin-left: 5px;
+      }
+      .banner-desc .left p{
+        margin:18px;
+      }
+      .banner-desc .right h3{
+        font-size: 45px;
+      }
+      .banner-desc .right p{
+        font-size: 18px;
+      }
+      .banner-desc{
+        flex-wrap: wrap;
+        gap: 20px;
+      }  
+}

@@ -8,12 +8,12 @@ import logo from "../src/assets/logo.svg";
 const Footer = () => {
   
   return (
-    <div className="footer-basic">
+    <footer className="footer-basic">
       
       <footer className="container">
         <div className="footer-logo navbar-brand">
           <Link href="/" passHref>
-              <Image className="logo-icon" src={logo} alt="logo" />
+              <Image src={logo} alt="logo" />
           </Link>
         </div>
           
@@ -49,7 +49,7 @@ const Footer = () => {
         
       </footer>
       <p className="copyright">Cherry Furniture © 2023 © All rights reserved </p>
-    </div>
+    </footer>
   );
 };
 

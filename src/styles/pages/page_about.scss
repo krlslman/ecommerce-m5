@@ -1,0 +1,37 @@
+.aboutus > p {
+    text-align: justify;
+  }
+  .sub-header {
+    text-align: left;
+    margin: 2rem auto ;
+    color: #324d67;
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .aboutus.container {
+    max-width: 1000px;
+    margin-bottom: 100px;
+  }
+  .aboutus-heading{
+    text-align: center;
+    margin: 80px 0px;
+    color: #324d67;
+  }
+  .photo-and-text-column {
+    display: flex;
+    gap:  1rem;
+    text-align: justify;
+    
+  }
+  .photo-column{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .photo-column .image-item{
+    width: 350px;
+    height: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+  }

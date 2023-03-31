@@ -4,27 +4,26 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head >
-        {/* <meta httpEquiv="Content-Security-Policy" content="style-src 'self' https://fonts.googleapis.com https://apis.google.com 'unsafe-inline'; font-src 'self' https://q.stripe.com https://fonts.gstatic.com; img-src 'self' https://cdn.sanity.io http://localhost:3000; script-src nonce=<random_value>; " /> */}
-        
-          
           <meta httpEquiv="Content-Security-Policy" 
             content="default-src 'self' data: gap: ws: ; 
             style-src 'self' 'unsafe-inline' *;
             script-src 'self' 'unsafe-eval' 'unsafe-inline' *;
-            media-src 'none'; 
-            font-src *;
-            connect-src *;
+            media-src 'none' ; 
+            font-src 'self' 'unsafe-inline' fonts.gstatic.com fonts.googleapis.com;
+            connect-src * ;
             img-src 'self' data: content: * ;
-            frame-src 'self' 'unsafe-eval' 'unsafe-inline' https://m.youtube.com https://stripe.com;
-            " />
+            frame-src js.stripe.com ;"
+            />
             {/* 
-            https://www.youtube.com https://cdn.sanity.io
+            frame-src 'self' 'unsafe-eval' 'unsafe-inline' data: ;
+            www.youtube.com
+            cdn.sanity.io
             i5.walmartimages.com
             fonts.gstatic.com
             fonts.googleapis.com
             cdn.sanity.io
-            https://js.stripe.com'
-            
+            js.stripe.com  
+            // youtube.com www.youtube.com js.stripe.com m.stripe.com        
             */}
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>

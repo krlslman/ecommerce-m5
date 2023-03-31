@@ -1,0 +1,101 @@
+
+.hero-banner-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+//   padding: 1rem;
+  height: auto;
+  min-height: 90vh;
+  line-height: 1; 
+  width: 100%;
+  max-width: 100vw; 
+  background-position:  center center  ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 70%;
+}
+.hero-banner-container .hero-banner-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: "hidden";
+}
+.hero-banner-container .hero-banner-image span img { //Image tag
+    object-fit: cover;
+}
+.hero-banner-container .beats-solo{
+  font-size: 20px;
+  filter: drop-shadow(2pxvh4px 6px #fac09b);
+}
+.hero-banner-container h3{
+  font-size: 4rem;
+  margin-top: 4px;
+  filter: drop-shadow(2px 4px 0px #fac09b);
+}
+.hero-banner-container h1{
+  line-height: 1; 
+  color: white;
+  font-size: 8rem;
+  margin-left: -20px;
+  text-transform: uppercase;
+  filter: drop-shadow(4px 4px 0px #000);
+}
+.hero-banner-container .desc{
+  position: relative;
+  right: 10%;
+  width: 100%;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(2px 2px 2px black);
+}
+.hero-banner-container .desc p{
+  color: #fbfbfb;
+  font-size: small;
+  font-weight: 100;
+  text-align: end;
+}
+.hero-banner-container .desc h5{
+  margin-bottom: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fbfbfb;
+  align-self: flex-end;
+}
+
+//! --------------- RESPONSIVE --------------------
+@media screen and (max-width:800px) {
+
+  .hero-banner-container{
+    line-height: 1.3;
+    height: calc(100vh - 60px);
+  }
+  .hero-banner-container .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }  
+  .hero-banner-container h1{
+    font-size: 50px;
+  }
+ .hero-banner-container h3{
+    font-size: 40px;
+  }
+  .hero-banner-container .button-and-desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-banner-container button{
+    margin-top: 90px;
+    z-index: 10000;
+  }
+  .hero-banner-container .desc{ 
+    margin-top: 3rem;
+  }
+
+}

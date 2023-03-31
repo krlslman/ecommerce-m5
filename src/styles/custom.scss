@@ -10,11 +10,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', sans-serif, '-apple-system', BlinkMacSystemFont, Segoe UI, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Poppins", sans-serif, "-apple-system", BlinkMacSystemFont,
+    Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
   font-weight: 300;
-    box-sizing: border-box;
-
+  box-sizing: border-box;
 }
 
 input.form-control:active,
@@ -39,24 +39,23 @@ a:hover {
 }
 h2 {
   text-align: center;
-  margin: 1rem;  
+  margin: 1rem;
   margin: 30px 0px;
   color: #324d67;
   font-size: 40px;
-  font-weight:lighter !important;
+  font-weight: lighter !important;
 }
-.layout{
+.layout {
   overflow-x: hidden;
 }
-.main-container{
+.main-container {
   /* max-width: 1400px;  */
   margin: auto;
   width: 100%;
   min-height: 70vh;
-  }
-  
+}
+
 .container {
   max-width: 1120px;
   margin: auto;
 }
-  

@@ -25,10 +25,10 @@ const Aboutus = () => {
       <div className="photo-and-text-column flex-wrap flex-lg-nowrap justify-content-center">
         <div className="photo-column">
           <div className="image-item">
-            <Image src={imageUpper} alt="Aboutus image 1" />
+            <Image src={imageUpper} alt="Aboutus image 1" placeholder="blur"/>
           </div>
           <div className="image-item" style={{ filter: "saturate(0.1) contrast(1.2)" }}>
-            <Image src={imagePortre} alt="Aboutus image 2" />
+            <Image src={imagePortre} alt="Aboutus image 2" placeholder="blur"/>
           </div>
         </div>
         <div className="text-column">

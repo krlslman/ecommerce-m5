@@ -1,0 +1,48 @@
+.products-page .product-search-container {
+  width: 250px;
+}
+.product-search-container input {
+  border: transparent;
+  font-size: 14px;
+  border-bottom: 1px solid #cccccc;
+  color: #324d67;
+  &::placeholder {
+    color: #cecece;
+  }
+  &:active,
+  &:focus {
+    box-shadow: none;
+  }
+}
+.maylike-products-wrapper {
+  margin-top: 120px;
+}
+.maylike-products-wrapper h2 {
+  text-align: center;
+  margin: 50px;
+  color: #324d67;
+  font-size: 28px;
+}
+.maylike-products-container .product-card-wrapper {
+  max-width: 200px;
+}
+.maylike-products-container .product-card-wrapper img {
+  height: 150px;
+}
+.maylike-products-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+
+//! --------------- RESPONSIVE --------------------
+@media screen and (max-width: 800px) {
+  .maylike-products-container .product-card-wrapper {
+    max-width: 150px;
+  }
+  .maylike-products-container .product-card-wrapper img {
+    height: 150px;
+  }
+}

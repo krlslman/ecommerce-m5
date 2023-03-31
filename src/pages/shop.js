@@ -56,18 +56,13 @@ const Shop = ({ products, category }) => {
         .map((product) => (
           <Product key={product._id} product={product} />
         ))}
-
-        
-
       </div>
+      
       <div className="show-more text-center mt-3">
-            {/* {numToShow < myCards.length && (
-                <button onClick={handleShowMore}>Show more</button>
-            )} */}
-            {numToShow < filteredProducts.length 
-              ? <button className='btn btn-outline m-5' onClick={handleShowMore}>Show more</button> 
-              : <button className='btn btn-outline m-5' onClick={handleShowLess}>Show less</button>}
-        </div>
+          {numToShow < filteredProducts.length 
+            ? <button className='btn btn-outline m-5' onClick={handleShowMore}>Show more</button> 
+            : <button className='btn btn-outline m-5' onClick={handleShowLess}>Show less</button>}
+      </div>
     </div>
   );
 };

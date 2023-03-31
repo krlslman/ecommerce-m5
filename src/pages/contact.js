@@ -43,7 +43,7 @@ const Contact = () => {
             </form>
           </div>
           <div className='map'>
-            <Image src={mapImg} alt="Map"/>
+            <Image src={mapImg} alt="Map" placeholder="blur"/>
           </div>
         </div>
         

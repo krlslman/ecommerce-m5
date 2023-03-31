@@ -1,0 +1,86 @@
+.contact{
+    margin-bottom: 100px;
+  }
+  .contact .container{
+    max-width: 1000px;
+  }
+  .contact .container.main{
+    margin: 2rem auto;
+  }
+  .contact .container .row{
+    // display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 768px) {
+    .contact .container .row {
+      flex-direction: column;
+    }
+  }
+  .contact .container.flex img{
+    width: 450px;
+    max-width: 450px;
+    height: 400px;
+    object-fit: cover;
+  }
+  .contact .letter-container{
+    // width: 500px;
+    margin: auto;
+    flex: 1;
+  }
+  .contact .map{
+    flex: 1;
+  }.contact .map img{
+    width: inherit;
+  }
+  .contact form{
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    align-items: center;
+    gap: 1rem;
+    margin: 50px auto;
+  }
+  .contact textarea{
+    width: 80%;
+    max-width: 500px;
+    border: none;
+    border-bottom: rgb(205, 205, 205) solid 1px;
+    outline: none;
+    line-height: 3ch;
+    background-image: linear-gradient(transparent, transparent calc(3ch - 1px),  rgba(205, 205, 205, 0.312) 0px);
+    background-size: 100% 3ch;
+    padding-bottom: 0;
+    resize: none;
+  }
+  .contact form > input{
+    border: none;
+    border-bottom: rgb(205, 205, 205) solid 1px;
+    outline: none;
+    padding: 5px;
+    margin-top: 1rem;
+    width: 500px;
+    max-width: 500px;
+  }
+  .contact form input#name,
+  .contact form input#email{
+    width: 200px;
+    max-width: 200px;
+    align-items: end;
+  }
+  .contact form button {
+    border-radius: 15px;
+    padding: 10px 24px;
+    background-color: transparent;
+    color: rgb(49, 49, 49);
+    border: 1px solid rgb(49, 49, 49);
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .contact form button:hover{
+    border: 1px solid transparent;  
+    background-color: #39d524;
+    color: white;
+  }

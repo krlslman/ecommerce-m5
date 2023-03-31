@@ -1,0 +1,114 @@
+.success-page {
+  background-color: white;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.success-wrapper,
+.cancel-wrapper {
+  background-color: white;
+  // min-height: 600px;
+  width: auto;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(2px 4px 8px rgb(180, 180, 180));
+  border-radius: 15px;
+  position: absolute;
+  top: 5vh;
+}
+.success-wrapper .icon-block {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  padding: 2rem;
+  background-color: #84b946;
+  border-radius: 15px 15px 0px 0px;
+}
+.success-wrapper .icon-block svg {
+  color: white;
+  font-size: 6rem;
+}
+.success {
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  padding: 0px 50px 50px 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cancel {
+  width: 1000px;
+  margin: auto;
+  margin-top: 160px;
+  background-color: #f7baba;
+  padding: 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.success h2 {
+  text-transform: capitalize;
+  margin-top: 15px 0px;
+  font-weight: 900;
+  font-size: 40px;
+  color: #324d67;
+}
+.success .email-msg {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.cancel p {
+  font-size: 20px;
+  font-weight: 600;
+}
+.success .description {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px;
+  margin-top: 30px;
+}
+.success .description .email {
+  margin-left: 5px;
+  font-weight: 700;
+}
+
+
+//! --------------- RESPONSIVE --------------------
+@media screen and (max-width: 800px) {
+  .success-wrapper,
+  .cancel-wrapper {
+    display: flex;
+    min-width: 358px;
+    min-height: 495px;
+    width: 310px;
+    top: 0vh;
+  }
+  .success-wrapper .icon-block svg {
+    /* color: white; */
+    font-size: 5rem;
+    margin-bottom: 0rem;
+  }
+  .success,
+  .cancel {
+    /* width: 370px; */
+    /* margin-top: 100px; */
+    padding: 20px;
+  }
+  .success {
+    height: 350px;
+  }
+  .success h2 {
+    font-size: 17px;
+  }
+}

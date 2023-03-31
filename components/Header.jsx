@@ -11,7 +11,7 @@ import logo from "../src/assets/logo.svg";
 const Header = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   const [ searchExpand, setSearchExpand ] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [ isSmallScreen, setIsSmallScreen ] = useState(false);
 
   const closeNavbarAfterMenuItemClick = () => {
     const navbarToggler = document.querySelector(".navbar-toggler");
@@ -40,7 +40,7 @@ const Header = () => {
         <div className="container-fluid container">
           <div className="navbar-brand">
             <Link href="/" passHref>
-              <Image className="logo-icon" src={logo} alt="logo" />
+              <Image src={logo} alt="logo" />
             </Link>
           </div>
 
