@@ -1,7 +1,6 @@
-// import Link from "next/link";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { useStateContext } from "../context/StateContext";
