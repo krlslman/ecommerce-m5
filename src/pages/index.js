@@ -6,9 +6,9 @@ import {  FooterBanner,
           SupportArea,
           BestSellers 
         } from '../../components';
-
         
 const Home = ({ products, bannerData }) => {  
+
   return (
     <div>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />

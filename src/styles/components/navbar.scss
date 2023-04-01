@@ -28,7 +28,7 @@
         }
         @media (max-width: 800px) {
           .navbar-brand {
-            max-width: 270px;
+            max-width: 194px;
             height: 60px;
             object-fit: contain;
           }
@@ -72,7 +72,32 @@
             left: -7px;
           }
         }
-  
+        .cart-icon{ // working in both navbar-collapse and container-fluid
+            font-size: 25px;
+            color: gray;
+            cursor: pointer;
+            position: relative;
+            transition: transform .4s ease;
+            border: none;
+            background-color: transparent;
+            margin-left: 5px;
+            &:hover{
+              transform: scale(1.1,1.1);
+            }
+        
+            & .cart-item-qty{
+              position: absolute;
+              right: -8px;
+              font-size: 12px;
+              color: #eee;
+              background-color: #ec7500;
+              width: 18px;
+              height: 18px;
+              border-radius: 50%;
+              text-align: center;
+              font-weight: 600;
+            }
+          }
         .navbar-collapse {
           transition: all 0.3s ease-in;
           ul.navbar-nav {
@@ -110,46 +135,27 @@
               transform: rotate(90deg);
             }
           }
-          svg{ // .search-icon
-            position: absolute;
+          .cart-icon svg{
+            // padding: 5px 1rem 0px 5px;            
+          }
+          .search-icon svg{ // .search-icon
+            // position: absolute;
+            // padding: 5px 1rem 0px 1rem;
             box-sizing: content-box;
             z-index: 2;
             height: 22px;
             width: 22px;
-            padding: 5px 1rem 0px 1rem;
             color: gray;
           }
           &:hover {
             cursor: pointer;
           }
         }
-        .cart-icon{
-          font-size: 25px;
-          color: gray;
-          cursor: pointer;
-          position: relative;
-          transition: transform .4s ease;
-          border: none;
-          background-color: transparent;
-          margin-left: 5px;
-          &:hover{
-            transform: scale(1.1,1.1);
-          }
-
-          .cart-item-qty{
-            position: absolute;
-            right: -8px;
-            font-size: 12px;
-            color: #eee;
-            background-color: #ec7500;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            text-align: center;
-            font-weight: 600;
-          }
-        }        
       }
     }
+    
+    
   }
+
+  
   

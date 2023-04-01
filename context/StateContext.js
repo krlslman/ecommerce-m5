@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { auth } from '../firebase.js';
+
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
@@ -9,6 +13,8 @@ export const StateContext = ({ children }) => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalQuantities, setTotalQuantities] = useState(0);
     const [qty, setQty] = useState(1);
+    const [user, setUser] = useState(null);
+    const [dropdownVisible, setDropdownVisible] = useState(false);
 
     //! This function is used when -Add to Cart- button is clicked
     const onAdd = (product, quantity) => {
@@ -82,13 +88,44 @@ export const StateContext = ({ children }) => {
       onAdd(product, quantity)
       setShowCart(true)
     }
+
+    //! This function is used to login
+    const handleLogin = async () => {
+      const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+      try {
+        const result = await auth.signInWithPopup(googleAuthProvider);
+        if (result.user) {
+          await result.user.updateProfile({
+            displayName: result.user.displayName || result.user.email,
+          });
+          setUser(result.user);
+          setDropdownVisible(false);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    //! This function is used to toggle visibility of login dropdown menu
+    const toggleDropdown = () => {
+      setDropdownVisible(!dropdownVisible);
+    };
+    
+    //! This function is used to logout
+    const handleLogout = () => {
+      auth.signOut();
+      setUser(null)
+    };
+
     return (
         <Context.Provider value={{
             showCart,
             setShowCart,
             cartItems,
+            setCartItems,
             totalPrice,
+            setTotalPrice,
             totalQuantities,
+            setTotalQuantities,
             qty,
             incQty, 
             decQty,
@@ -96,9 +133,13 @@ export const StateContext = ({ children }) => {
             buyNow,
             toggleCartItemQuanitity,
             onRemove,
-            setCartItems,
-            setTotalPrice,
-            setTotalQuantities 
+            handleLogin,
+            handleLogout,
+            user,
+            setUser,
+            toggleDropdown,
+            dropdownVisible,
+            setDropdownVisible,
           }}
         >
           {children}

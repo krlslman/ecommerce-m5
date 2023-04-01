@@ -7,11 +7,12 @@ import { BiSearch } from "react-icons/bi";
 import { useStateContext } from "../context/StateContext";
 import Cart from "./Cart";
 import logo from "../src/assets/logo.svg";
+import LoginButton from "./LoginButton";
 
-const Header = () => {
+
+const Header = () => {  
   const { showCart, setShowCart, totalQuantities } = useStateContext();
-  const [ searchExpand, setSearchExpand ] = useState(false);
-  const [ isSmallScreen, setIsSmallScreen ] = useState(false);
+  const [ searchExpand, setSearchExpand ] = useState(false);  
 
   const closeNavbarAfterMenuItemClick = () => {
     const navbarToggler = document.querySelector(".navbar-toggler");
@@ -19,21 +20,10 @@ const Header = () => {
     navbarToggler.dispatchEvent(clickEvent);
   }
 
-  const toggleSmallScreen = () => {
-    const isSmall = window.screen.width < 800;
-    setIsSmallScreen(isSmall)
-    return isSmall;
-  }
-
-  useEffect(() => {
-    toggleSmallScreen();
-  }, [])
-  
-
   const toggleSearchExpand = () => {
     setSearchExpand(!searchExpand);    
   }
-  
+
   return (
     <header className={` navbar2 `}>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -43,8 +33,7 @@ const Header = () => {
               <Image src={logo} alt="logo" />
             </Link>
           </div>
-
-          <div>
+          <div>            
             <button
               className="navbar-toggler"
               type="button"
@@ -56,17 +45,7 @@ const Header = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </button> 
-
-            { isSmallScreen && <button className="cart-icon"
-              type="button"
-              onClick={() => setShowCart(true)}
-            >
-              <AiOutlineShopping />
-              <span className="cart-item-qty">{totalQuantities}</span>
-            </button>}
-          </div>
-
-                   
+          </div>                   
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -128,28 +107,44 @@ const Header = () => {
             </ul>
 
             <form
-              className="d-flex flex-row-reverse justify-content-start align-items-center"
+              className="d-flex flex-row-reverse justify-content-between"
               role="search"
-            >
-              <BiSearch className="search-icon" onClick={()=>toggleSearchExpand(!searchExpand)}/>
-              <input
-                // className="form-control me-2 "
-                className={`form-control me-2 ${searchExpand ? "expanded" : ""}`}
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onBlur={()=>toggleSearchExpand(!searchExpand)}
-              />
-              {/* <button className="btn btn-navbar btn-outline-success" type="submit">Search</button> */}
-            </form>
+            >   
+              <div className="search-icon d-flex flex-row-reverse justify-content-start align-items-center">
+                <BiSearch className="px-2" onClick={()=>toggleSearchExpand(!searchExpand)}/>
+                  <input
+                    className={`form-control me-2 ${searchExpand ? "expanded" : ""}`}
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    onBlur={()=>toggleSearchExpand(!searchExpand)}
+                  />        
+              </div>  
+              <div className="login-info ms-4 d-flex flex-nowrap position-relative d-block d-lg-none ">
+                <LoginButton />              
+              </div>
+              <button className="cart-icon d-lg-none"
+                type="button"
+                onClick={() => setShowCart(true)}
+              >
+                <AiOutlineShopping />
+                <span className="cart-item-qty">{totalQuantities}</span>
+              </button>
+            </form>   
+            
           </div>
-          {!isSmallScreen && <button className="cart-icon d-none d-lg-block"
+          {<button className="cart-icon d-none d-lg-block"
             type="button"
             onClick={() => setShowCart(true)}
           >
             <AiOutlineShopping />
             <span className="cart-item-qty">{totalQuantities}</span>
           </button>}
+
+            <div className="login-info ms-4 d-flex flex-nowrap position-relative d-none d-lg-block">
+              <LoginButton />              
+            </div>
+
         </div>
 
         {showCart && <Cart />}

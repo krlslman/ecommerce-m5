@@ -5,14 +5,17 @@ export default function Document() {
     <Html lang="en">
       <Head >
           <meta httpEquiv="Content-Security-Policy" 
-            content="default-src 'self' data: gap: ws: ; 
-            style-src 'self' 'unsafe-inline' *;
+            content="
+            default-src 'self' data: gap: ws: ; 
+            style-src 'self' 'unsafe-inline' m.stripe.network *;
+            style-src-elem 'self' 'unsafe-inline' *;
             script-src 'self' 'unsafe-eval' 'unsafe-inline' *;
             media-src 'none' ; 
-            font-src 'self' 'unsafe-inline' fonts.gstatic.com fonts.googleapis.com;
+            font-src 'self' 'unsafe-inline' fonts.gstatic.com fonts.googleapis.com  js.stripe.com;
             connect-src * ;
             img-src 'self' data: content: * ;
-            frame-src js.stripe.com ;"
+            frame-src 'self' js.stripe.com ecommerce-m5.firebaseapp.com/;
+            "
             />
             {/* 
             frame-src 'self' 'unsafe-eval' 'unsafe-inline' data: ;
