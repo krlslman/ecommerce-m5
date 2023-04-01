@@ -3,13 +3,13 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCAXtUWtqqcIjP6X3GbaafSGvGKszn00YI",
-  authDomain: "ecommerce-m5.firebaseapp.com",
-  projectId: "ecommerce-m5",
-  storageBucket: "ecommerce-m5.appspot.com",
-  messagingSenderId: "858602165000",
-  appId: "1:858602165000:web:8f205559007dfa467552bd",
-  measurementId: "G-HLJKQT9599"
+  apiKey:             process.env.FIREBASE_APIKEY,
+  authDomain:         process.env.FIREBASE_AUTHDOMAIN,
+  projectId:          process.env.FIREBASE_PROJECTDOMAIN,
+  storageBucket:      process.env.FIREBASE_STORAGEBUCKET,
+  messagingSenderId:  process.env.FIREBASE_MESSAGINGSENDER,
+  appId:              process.env.FIREBASE_APPID,
+  // measurementId:      process.env.FIREBASE_MESASUREMENTID
 };
 
 // Check if there is already a Firebase app instance
