@@ -32,7 +32,7 @@ const Header = () => {
               <Image src={logo} alt="logo" />
             </Link>
           </div>
-          <div>            
+          <div className="navbar-toggler-wrapper">            
             <button
               className="navbar-toggler"
               type="button"
@@ -73,7 +73,6 @@ const Header = () => {
                   className="nav-link"
                   href="/aboutus"
                   aria-current="page"
-                  // onClick={set}
                   passHref
                 >
                   About
@@ -119,9 +118,10 @@ const Header = () => {
                     onBlur={()=>toggleSearchExpand(!searchExpand)}
                   />        
               </div>  
-              <div className="login-info ms-4 d-flex flex-nowrap position-relative d-block d-lg-none ">
+              {/* TODO : Same login component doesnt work in navbar-collapse div */}
+              {/* <div className="login-info ms-4 d-flex flex-nowrap position-relative d-block d-lg-none ">
                 <LoginButton />              
-              </div>
+              </div> */}
               <button className="cart-icon d-lg-none"
                 type="button"
                 onClick={() => setShowCart(true)}
@@ -132,15 +132,15 @@ const Header = () => {
             </form>   
             
           </div>
-          {<button className="cart-icon d-none d-lg-block"
+          <button className="cart-icon d-none d-lg-block"
             type="button"
             onClick={() => setShowCart(true)}
           >
             <AiOutlineShopping />
             <span className="cart-item-qty">{totalQuantities}</span>
-          </button>}
-
-            <div className="login-info ms-4 d-flex flex-nowrap position-relative d-none d-lg-block">
+          </button>
+          {/* d-none d-lg-block */}
+            <div className="login-button-wrapper ms-4">
               <LoginButton />              
             </div>
 

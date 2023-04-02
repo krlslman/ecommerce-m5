@@ -34,22 +34,24 @@
           }
         }
         .navbar-toggler {
-          padding: 0px;
           border: none;
+          padding: 0px;
         }
-        .navbar-toggler { // closed-menu
-          .navbar-toggler-icon { // Arrow Down
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.41 8.59L12 11.17l2.59-2.58L16 9l-4 4-4-4 1.41-1.41z"/></svg>');
-            transform: rotate(180deg);
+        .navbar-toggler[aria-expanded*="false"] { // closed-menu
+          .navbar-toggler-icon { // Arrow Down or Hamburger
+            // background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.41 8.59L12 11.17l2.59-2.58L16 9l-4 4-4-4 1.41-1.41z"/></svg>');
+            transform: rotate(0deg);
             background-repeat: no-repeat;
             background-position: center;
-            transition: transform 0.3s;
+            transition: all 0.3s;
           }
         }
-        .navbar-toggler.collapsed { // open-menu
+        .navbar-toggler[aria-expanded*="true"] { // open-menu
           .navbar-toggler-icon { // Arrow Up
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.41 8.59L12 11.17l2.59-2.58L16 9l-4 4-4-4 1.41-1.41z"/></svg>'); /* Replace with your hamburger icon SVG code */
-            transform: rotate(0deg);
+            transform: rotate(180deg);
+            width: 40px;
+            transition: all 0.3s;
           }
         }
         .navbar-toggler:focus,
@@ -135,9 +137,6 @@
               transform: rotate(90deg);
             }
           }
-          .cart-icon svg{
-            // padding: 5px 1rem 0px 5px;            
-          }
           .search-icon svg{ // .search-icon
             // position: absolute;
             // padding: 5px 1rem 0px 1rem;
@@ -151,6 +150,23 @@
             cursor: pointer;
           }
         }
+        .login-button-wrapper {
+          color: #7c7c7c;
+          & p {
+            font-size: 14px;
+            margin: auto;
+          }
+          & .dropdown {
+            padding-left: 5px;
+            & svg {
+              fill: #7c7c7c;
+              &:hover {
+                fill: #ec7500;
+              }
+            }
+            
+          }
+        }
       }
     }
     
@@ -158,4 +174,31 @@
   }
 
   
-  
+  @media (max-width: 800px) {
+    .navbar-toggler-wrapper {
+      // border: blue solid;
+      text-align: right;
+      width: calc(100% - 301px);
+      max-width: 100%;
+      margin: 0px;
+    }
+    // This styling is done since calling same LoginButton component in two different places in navbar didnt execute the login process.
+    .navbar-collapse.show ~ .login-button-wrapper { // select wrapper if navbar is shown
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .login-button-wrapper .login-info {
+      position: absolute;
+      top: 3px;
+      right: 10px;
+    }
+    .navbar-toggler {
+      position: absolute;
+      right: 10px;
+    }
+    .btn-logout {
+      right: 0;
+      position: inherit;
+    }
+  }

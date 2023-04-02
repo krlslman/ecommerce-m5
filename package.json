@@ -16,6 +16,7 @@
     "bootstrap": "^5.2.3",
     "firebase": "^8.10.1",
     "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.2.1",
     "next": "12.1.0",
     "next-sanity-image": "^3.2.1",
     "nodemailer": "^6.9.1",

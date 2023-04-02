@@ -2,7 +2,6 @@ import nodemailer from 'nodemailer';
 
 export default async function sendEmailHandler(req, res) {
   if (req.method === 'POST') {
-    console.log("qqweqweqweqweqwe");
     const { name, email, message } = req.body;
     // Create a Nodemailer transporter object
     let transporter = nodemailer.createTransport({

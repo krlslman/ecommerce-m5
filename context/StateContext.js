@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -87,8 +88,11 @@ export const StateContext = ({ children }) => {
     const buyNow = (product, quantity) => {
       onAdd(product, quantity)
       setShowCart(true)
-    }
-
+    }    
+    //! This function is used to toggle visibility of login dropdown menu
+    const toggleDropdown = () => {
+      setDropdownVisible(!dropdownVisible);
+    };
     //! This function is used to login
     const handleLogin = async () => {
       const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
@@ -105,14 +109,10 @@ export const StateContext = ({ children }) => {
         console.error(error);
       }
     }
-    //! This function is used to toggle visibility of login dropdown menu
-    const toggleDropdown = () => {
-      setDropdownVisible(!dropdownVisible);
-    };
-    
     //! This function is used to logout
     const handleLogout = () => {
       auth.signOut();
+      setDropdownVisible(false);
       setUser(null)
     };
 
