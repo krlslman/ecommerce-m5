@@ -12,10 +12,10 @@ export default function Document() {
             style-src-elem 'self' 'unsafe-inline' *;
             script-src 'unsafe-eval' 'unsafe-inline' *;
             media-src 'none' ; 
-            font-src * 'unsafe-inline' ;
+            font-src 'self' fonts.googleapis.com m.stripe.com js.stripe.com ;
             connect-src * ;
             img-src 'self' data: content: * ;
-            frame-src 'self' fonts.googleapis.com m.stripe.com js.stripe.com ;
+            frame-src *;
             "            
             />    
             
