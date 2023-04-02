@@ -15,7 +15,7 @@ export default function Document() {
             font-src * 'unsafe-inline' ;
             connect-src * ;
             img-src 'self' data: content: * ;
-            frame-src *;
+            frame-src 'self' fonts.googleapis.com m.stripe.com js.stripe.com ;
             "            
             />    
             
