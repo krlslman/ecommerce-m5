@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast';
-import mapImg from '../assets/contact_map.jpeg'
+// import mapImg from '../assets/contact_map.jpg'
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -41,7 +41,7 @@ const Contact = () => {
             </form>
           </div>
           <div className='map'>
-            <Image src={mapImg} alt="Map" placeholder="blur"/>
+            <Image src={process.env.contact_map} alt="Map" objectFit='cover' width={500} height={500}/>
           </div>
         </div>
         

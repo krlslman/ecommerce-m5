@@ -5,7 +5,8 @@ const nextConfig = {
   images: {
     domains: [
       'cdn.sanity.io',
-      'i5.walmartimages.com'
+      'i5.walmartimages.com',
+      'localhost'
     ]
   }
 }
@@ -44,3 +45,14 @@ module.exports = {
   ],
   optimizeFonts: false, // To enable google font usage
 };
+
+// try for static image sources
+module.exports = {
+  env: {
+    about_portre: '/assets/about_portre.jpg',
+    about_street: '/assets/about_street.jpg',
+    contact_map: '/assets/contact_map.jpg',
+    home_banner_1: '/assets/home_banner_1.jpg',
+    logo_svg: '/assets/logo.svg',
+  },
+}

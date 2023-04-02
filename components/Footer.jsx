@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import Image from "next/image";
-import logo from "../src/assets/logo.svg";
 
 
 const Footer = () => {
@@ -13,7 +12,7 @@ const Footer = () => {
       <footer className="container">
         <div className="footer-logo navbar-brand">
           <Link href="/" passHref>
-              <Image src={logo} alt="logo" />
+              <Image src={process.env.logo_svg} alt="logo" width={300} height={80} objectFit="contain" />
           </Link>
         </div>
           

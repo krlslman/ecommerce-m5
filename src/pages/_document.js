@@ -39,7 +39,6 @@ export default function Document() {
             font-src 'self' fonts.googleapis.com m.stripe.com js.stripe.com ;
             frame-src 'self' 'unsafe-eval' 'unsafe-inline' data: ;
             www.youtube.com
-            cdn.sanity.io
             i5.walmartimages.com
             fonts.gstatic.com
             fonts.googleapis.com

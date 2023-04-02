@@ -5,7 +5,6 @@ import { AiOutlineShopping } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { useStateContext } from "../context/StateContext";
 import Cart from "./Cart";
-import logo from "../src/assets/logo.svg";
 import LoginButton from "./LoginButton";
 
 
@@ -29,7 +28,7 @@ const Header = () => {
         <div className="container-fluid container">
           <div className="navbar-brand">
             <Link href="/" passHref>
-              <Image src={logo} alt="logo" />
+              <Image src={process.env.logo_svg} alt="logo" width={300} height={80} objectFit="contain" />
             </Link>
           </div>
           <div className="navbar-toggler-wrapper">            

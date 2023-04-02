@@ -2,8 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 // import { urlFor } from '../lib/client';
 import Image from 'next/image';
-import bannerCover from '../src/assets/home_banner_1.jpg';
-// const bannerCover = import('../src/assets/home_banner_1.jpg')
+// import home_banner_1 from '../src/assets/home_banner_1.jpg';
 
 const HeroBanner = ({ heroBanner } ) => {
 
@@ -11,8 +10,8 @@ const HeroBanner = ({ heroBanner } ) => {
     // <div className='hero-banner-container' style={{ backgroundImage:  heroBanner && `url(${urlFor(heroBanner.image)})` }}>
     <div className='hero-banner-container' >
       <div className='hero-banner-image' >
-        <Image src={bannerCover} alt="American Furnitue Cover Image" 
-          priority layout='fill' objectFit='cover' placeholder="blur" />
+        <Image src={process.env.home_banner_1} alt="American Furnitue Cover Image" 
+          priority layout='fill' objectFit='cover'  />
       </div>
       <div className='container p-1 p-lg-5' style={{ position: "relative" }}>
         
