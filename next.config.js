@@ -46,7 +46,7 @@ module.exports = {
   optimizeFonts: false, // To enable google font usage
 };
 
-// try for static image sources
+// For static image sources
 module.exports = {
   env: {
     about_portre: '/assets/about_portre.jpg',
