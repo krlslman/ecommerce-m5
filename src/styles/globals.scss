@@ -19,6 +19,9 @@
 @import "./pages/page_success.scss";
 
 // GENERAL
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .btn {
   text-transform: uppercase;
   border-radius: 8px;

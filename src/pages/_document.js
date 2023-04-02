@@ -12,7 +12,7 @@ export default function Document() {
             style-src-elem 'self' 'unsafe-inline' *;
             script-src 'unsafe-eval' 'unsafe-inline' *;
             media-src 'none' ; 
-            font-src 'self' fonts.googleapis.com m.stripe.com js.stripe.com ;
+            font-src * 'unsafe-inline' fonts.googleapis.com ;
             connect-src * ;
             img-src 'self' data: content: * ;
             frame-src *;
