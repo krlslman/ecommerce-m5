@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
         
       </footer>
-      <p className="copyright">Cherry Furniture © 2023 © All rights reserved </p>
+      <p className="copyright">American Furniture © 2023 © All rights reserved </p>
     </footer>
   );
 };
