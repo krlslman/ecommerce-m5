@@ -1,5 +1,9 @@
+const path = require('path');
+const webpack = require('webpack');
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -8,33 +12,18 @@ const nextConfig = {
       'i5.walmartimages.com',
       'localhost'
     ]
-  }
-}
-
-module.exports = nextConfig
-
-// This part is added to prevent img -> Image error, but not completed yet.
-module.exports = {
+  },
+  //^ This part is added to prevent img -> Image error, but not completed yet:
   publicRuntimeConfig: {
-    // Add your environment variables here
     MY_NEXT_PUBLIC_SANITY_TOKEN: process.env.NEXT_PUBLIC_SANITY_TOKEN,
     MY_NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     MY_NEXT_PUBLIC_STRIPE_SECRET_KEY: process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY,
   },
-};
-
-// This will allow Next.js to compile the SCSS files in your project.
-const path = require('path');
-module.exports = {
+  //^ This will allow Next.js to compile the SCSS files in your project:
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-};
-
-// This code adds jQuery and Popper.js to the global scope, which is required by Bootstrap 5.
-
-const webpack = require('webpack');
-module.exports = {
+  //^ This code adds jQuery and Popper.js to the global scope, which is required by Bootstrap 5:
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -44,15 +33,12 @@ module.exports = {
     }),
   ],
   optimizeFonts: false, // To enable google font usage
-};
-
-// For static image sources
-module.exports = {
+  //^ For static image sources:
   env: {
     about_portre: '/assets/about_portre.jpg',
     about_street: '/assets/about_street.jpg',
     contact_map: '/assets/contact_map.jpg',
     home_banner_1: '/assets/home_banner_1.jpg',
     logo_svg: '/assets/logo.svg',
-  },
-}
+  }
+};
