@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const nextTranslate = require('next-translate-plugin');
 
 /** @type {import('next').NextConfig} */
 
@@ -40,5 +41,7 @@ module.exports = {
     contact_map: '/assets/contact_map.jpg',
     home_banner_1: '/assets/home_banner_1.jpg',
     logo_svg: '/assets/logo.svg',
-  }
+  },
+  //^ For translation:
+  ...nextTranslate(),
 };

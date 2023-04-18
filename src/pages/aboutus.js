@@ -1,10 +1,13 @@
 import Image from "next/image";
 import React from "react";
+import useTranslation from 'next-translate/useTranslation';
 
 const Aboutus = () => {
+  const { t } = useTranslation()
+  
   return (
     <div className="aboutus container">
-      <h2>About us</h2>
+      <h2>{t('common:title')}</h2>
       <h3 className="sub-header">How it started</h3>
       <p>
         In a world where distractions are aplenty, it is easy to lose sight of
