@@ -6,7 +6,7 @@ import { BiSearch } from "react-icons/bi";
 import { useStateContext } from "../context/StateContext";
 import Cart from "./Cart";
 import LoginButton from "./LoginButton";
-
+import { useRouter } from 'next/router';
 
 const Header = () => {  
   const { showCart, setShowCart, totalQuantities } = useStateContext();
@@ -21,6 +21,13 @@ const Header = () => {
   const toggleSearchExpand = () => {
     setSearchExpand(!searchExpand);    
   }
+  
+  const { locales } = useRouter();
+  const router = useRouter();
+  const handleLanguageChange = (e) => {
+    const locale = e.target.value;
+    router.push(router.pathname, router.asPath, { locale });
+  };
 
   return (
     <header className={` navbar2 `}>
@@ -116,11 +123,16 @@ const Header = () => {
                     aria-label="Search"
                     onBlur={()=>toggleSearchExpand(!searchExpand)}
                   />        
-              </div>  
-              {/* TODO : Same login component doesnt work in navbar-collapse div */}
-              {/* <div className="login-info ms-4 d-flex flex-nowrap position-relative d-block d-lg-none ">
-                <LoginButton />              
-              </div> */}
+              </div>
+              <form className="ms-3 d-block d-lg-none">
+                <select name="language-picker-select" id="language-picker-select" onChange={handleLanguageChange} style={{textTransform:"uppercase", backgroundColor: "transparent", borderRadius: "8px"}}>
+                  {locales?.map((l) => (
+                    <option key={l} value={l}>
+                      {l}
+                    </option>
+                  ))}
+                </select>
+              </form>            
               <button className="cart-icon d-lg-none"
                 type="button"
                 onClick={() => setShowCart(true)}
@@ -138,6 +150,17 @@ const Header = () => {
             <AiOutlineShopping />
             <span className="cart-item-qty">{totalQuantities}</span>
           </button>
+
+          <form className="ms-3 d-none d-lg-block">
+            <select name="language-picker-select" id="language-picker-select" onChange={handleLanguageChange} style={{textTransform:"uppercase", backgroundColor: "transparent", borderRadius: "8px"}}>
+              {locales?.map((l) => (
+                <option key={l} value={l}>
+                  {l}
+                </option>
+              ))}
+            </select>
+          </form>
+          
           {/* d-none d-lg-block */}
             <div className="login-button-wrapper ms-4">
               <LoginButton />              

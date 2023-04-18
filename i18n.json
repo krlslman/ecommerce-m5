@@ -2,7 +2,8 @@
    "locales": ["en", "tr"],
    "defaultLocale": "en",
    "pages": {
-        "*": ["common"]
+        "*": ["common"],
+        "/aboutus": ["aboutus"]
    },
    "localeDetection": false
 }

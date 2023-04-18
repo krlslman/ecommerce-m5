@@ -7,7 +7,7 @@ const Aboutus = () => {
   
   return (
     <div className="aboutus container">
-      <h2>{t('common:title')}</h2>
+      <h2>{t('aboutus:title')}</h2>
       <h3 className="sub-header">How it started</h3>
       <p>
         In a world where distractions are aplenty, it is easy to lose sight of
