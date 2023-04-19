@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Product } from "../../components";
 import { client } from "../../lib/client";
+import useTranslation from 'next-translate/useTranslation';
 
 const SortButton = ({ sortType, onChange }) => {
+  const { t } = useTranslation();
+
   const options = [
-    { value: "name-asc", label: "Name A-Z" },
-    { value: "name-desc", label: "Name Z-A" },
-    { value: "price-desc", label: "Price High-Low" },
-    { value: "price-asc", label: "Price Low-High" }
+    { value: "name-asc", label: "A → Z" },
+    { value: "name-desc", label: "Z → A" },
+    { value: "price-desc", label: "9 → 1" },
+    { value: "price-asc", label: "1 → 9" }
   ];
 
   const handleChange = (value) => {
@@ -25,7 +28,7 @@ const SortButton = ({ sortType, onChange }) => {
         aria-haspopup="true"
         aria-expanded="false"
       >
-        Sort by {sortType}
+        {t('common:Sort by')} {options.find(option => option.value === sortType).label}
       </button>
       <div className="dropdown-menu" aria-labelledby="sort-button">
         {options.map((option) => (
@@ -43,6 +46,8 @@ const SortButton = ({ sortType, onChange }) => {
 };
 
 const Shop = ({ products, category }) => {
+  const { t } = useTranslation()
+
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchProduct, setSearchProduct] = useState("");
   const [numToShow, setNumToShow] = useState(8);
@@ -80,12 +85,8 @@ const Shop = ({ products, category }) => {
   return (
     <div className="products-page">
       <div className="products-heading container m-auto mb-4">
-        <h2>Products</h2>
-        <p>
-          We offer a wide variety of top-quality products, each crafted to meet
-          your unique needs and preferences, ensuring your utmost satisfaction
-          with every purchase.
-        </p>
+        <h2>{t('shop:title')}</h2>
+        <p>{t('shop:paragraph_1')}</p>
       </div>
       <div className="container d-flex justify-content-end">
         <div className="product-search-container me-1 pe-4">

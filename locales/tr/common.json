@@ -1,3 +1,23 @@
 {
-    "title": "common TR"
+    "Details": "Detaylar:",
+    "Quantity": "Miktar:",
+    "Add to cart": "Sepete ekle",
+    "Buy now": "Satın al",
+    "Shop now": "Satın al",
+    "You may also like": "Bunları da beğenebilirsiniz",
+
+    "Home": "Anasayfa",
+    "Shop": "Ürünler",
+    "About": "Hakkımızda",
+    "Contact": "İLETİŞİM",
+    "Login": "Giriş yap",
+    "Logout": "Çıkış yap",
+    "Search": "Ara",
+
+    "Your Cart": "Sepetiniz",
+    "x items": "{{totalQuantities, number}} adet ürün",
+    "Your shopping bag is empty": "Sepetinizde ürün bulunmamakta",
+    "Continue Shopping": "Alışverişe Devam Et",
+    
+    "Sort by": "Sırala: "
 }

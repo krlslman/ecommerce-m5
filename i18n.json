@@ -3,7 +3,10 @@
    "defaultLocale": "en",
    "pages": {
         "*": ["common"],
-        "/aboutus": ["aboutus"]
+        "/": ["home"],
+        "/shop": ["shop"],
+        "/aboutus": ["aboutus"],
+        "/contact": ["contact"]
    },
    "localeDetection": false
 }

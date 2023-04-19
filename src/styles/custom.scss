@@ -59,3 +59,11 @@ h2 {
   max-width: 1120px;
   margin: auto;
 }
+
+#language-picker-select {
+  border: none;
+}
+
+#language-picker-select:focus  {
+  outline: none;
+}

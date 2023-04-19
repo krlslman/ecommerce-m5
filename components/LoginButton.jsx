@@ -1,8 +1,10 @@
 import React from 'react';
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import { useStateContext } from '../context/StateContext';
+import useTranslation from 'next-translate/useTranslation';
 
 const LoginButton = () => {
+    const { t } = useTranslation();
     const { user, toggleDropdown, dropdownVisible, handleLogin, handleLogout } = useStateContext()
     
   return (
@@ -22,7 +24,7 @@ const LoginButton = () => {
                     <button 
                     style={{maxWidth: "max-content"}}
                     className="btn btn-fill btn-logout p-2 px-3 m-0"
-                    onClick={handleLogout}>LogOut</button>
+                    onClick={handleLogout}>{t('common:Logout')}</button>
                 </div>}
             </div>
         </div>
@@ -31,7 +33,7 @@ const LoginButton = () => {
             <div className="login-info d-flex flex-nowrap ">
                 <button className="btn btn-outline btn-login p-0 px-lg-4 py-lg-1 px-3 m-0" 
                 style={{ minWidth: "fit-content", textTransform: "capitalize"}}
-                onClick={handleLogin}>Login</button>
+                onClick={handleLogin}>{t('common:Login')}</button>
             </div>
             )
         

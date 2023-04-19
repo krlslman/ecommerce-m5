@@ -2,8 +2,10 @@ import Image from 'next/image';
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast';
 // import mapImg from '../assets/contact_map.jpg'
+import useTranslation from 'next-translate/useTranslation';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -27,17 +29,17 @@ const Contact = () => {
   return (
     <div className='contact'>
       <div className='container main'>
-        <h2>Contact Us</h2>
-        <p>If you need any assistance or have any questions, please don&#39;t hesitate to contact us. You can use the provided form to send us a message, and we will do our best to respond promptly.</p>
+        <h2>{t('contact:title')}</h2>
+        <p>{t('contact:paragraph_1')}</p>
       </div>
       <div className='container '>
         <div className='row'>
           <div className='letter-container'>
             <form action="" onSubmit={handleSubmit}>
-              <textarea id="msg" name="name" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Your message"  rows="4"></textarea>
-              <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder='Your name'/>
-              <input type="email" id="email" name="name" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Your email'/>
-              <button className='btn btn-outline' type="submit">Submit</button>
+              <textarea id="msg" name="name" value={message} onChange={(e) => setMessage(e.target.value)} placeholder={t('contact:Message_placeholder')} rows="4"></textarea>
+              <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t('contact:Name_placeholder')}/>
+              <input type="email" id="email" name="name" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t('contact:Email_placeholder')}/>
+              <button className='btn btn-outline' type="submit">{t('contact:Submit')}</button>
             </form>
           </div>
           <div className='map'>

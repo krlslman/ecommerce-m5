@@ -7,13 +7,17 @@ import { AiOutlineMinus, AiOutlinePlus, AiFillStar } from 'react-icons/ai';
 import { Product } from '../../../components';
 import { useStateContext } from '../../../context/StateContext';
 import { urlFor, client } from '../../../lib/client';
+import useTranslation from 'next-translate/useTranslation';
 
 
 const ProductDetails = ({ products, product }) => {
+    const { t } = useTranslation()
+
     const { image, name, price } = product;
     const [indexImg, setIndexImg] = useState(0); 
     const { qty, incQty, decQty, onAdd, buyNow } = useStateContext();
-  return (
+  
+    return (
     <div>
         <div className="product-detail-container">
             <div>
@@ -48,26 +52,26 @@ const ProductDetails = ({ products, product }) => {
                     (20)
                     </p>
                 </div>
-                <h4>Details: </h4>
+                <h4>{t('common:Details')}</h4>
                 <p>{}</p>
                 <p className="price">${price}</p>
                 <div className="quantity">
-                    <h3>Quantity:</h3>
+                    <h3>{t('common:Quantity')}</h3>
                     <p className="quantity-desc">
-                    <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
-                    <span className="num">{qty}</span>
-                    <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
+                        <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+                        <span className="num">{qty}</span>
+                        <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
                     </p>
                 </div>
                 <div className="buttons">
-                    <button type="button" className="btn btn-outline" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-                    <button type="button" className="btn btn-fill" onClick={() => buyNow(product, qty)}>Buy Now</button>
+                    <button type="button" className="btn btn-outline" onClick={() => onAdd(product, qty)}>{t('common:Add to cart')}</button>
+                    <button type="button" className="btn btn-fill" onClick={() => buyNow(product, qty)}>{t('common:Buy now')}</button>
                 </div>
             </div>
         </div>
 
         <div className="maylike-products-wrapper">
-          <h2>You may also like</h2>
+          <h2>{t('common:You may also like')}</h2>
           <div className="marquee">
             <div className="maylike-products-container track">
               {products.map((item) => (

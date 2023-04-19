@@ -2,10 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import Image from "next/image";
-
+import useTranslation from 'next-translate/useTranslation';
 
 const Footer = () => {
-  
+  const { t } = useTranslation();
+
   return (
     <footer className="footer-basic">
       
@@ -19,18 +20,18 @@ const Footer = () => {
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
             <a href="">
-            <Link className="nav-link active" href="/" aria-current="page" passHref>Home</Link>
+            <Link className="nav-link active" href="/" aria-current="page" passHref>{t('common:Home')}</Link>
               
             </a>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href="/shop" aria-current="page" passHref>Shop</Link>
+            <Link className="nav-link" href="/shop" aria-current="page" passHref>{t('common:Shop')}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href="/aboutus" aria-current="page" passHref>About</Link>
+            <Link className="nav-link" href="/aboutus" aria-current="page" passHref>{t('common:About')}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href="/contact" aria-current="page" passHref>Contact</Link>
+            <Link className="nav-link" href="/contact" aria-current="page" passHref>{t('common:Contact')}</Link>
           </li>
         </ul>
 
@@ -47,7 +48,7 @@ const Footer = () => {
         </div>
         
       </footer>
-      <p className="copyright">American Furniture © 2023 © All rights reserved </p>
+      <p className="copyright">{t('common:Copyright')}</p>
     </footer>
   );
 };

@@ -1,12 +1,15 @@
 import React from "react";
 import  Product  from "./Product";
+import useTranslation from 'next-translate/useTranslation';
 
 const BestSellers = ({ products }) => {
+  const { t } = useTranslation();
+
   return (
     <div>
       <div className="products-heading">
-        <h2>Best Seller Products</h2>
-        <p>There are many models</p>
+        <h2>{t('home:Best Seller Products')}</h2>
+        <p>{t('home:There are many models')}</p>
       </div>
 
       <div className="products-container container">

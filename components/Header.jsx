@@ -7,8 +7,11 @@ import { useStateContext } from "../context/StateContext";
 import Cart from "./Cart";
 import LoginButton from "./LoginButton";
 import { useRouter } from 'next/router';
+import useTranslation from 'next-translate/useTranslation';
 
 const Header = () => {  
+  const { t } = useTranslation();
+
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   const [ searchExpand, setSearchExpand ] = useState(false);  
 
@@ -61,7 +64,7 @@ const Header = () => {
                   aria-current="page"
                   passHref
                 >
-                  Home
+                  {t('common:Home')}
                 </Link>
               </li>
               <li className="nav-item" onClick={closeNavbarAfterMenuItemClick}>
@@ -71,7 +74,7 @@ const Header = () => {
                   aria-current="page"                  
                   passHref
                 >
-                  Shop
+                {t('common:Shop')}
                 </Link>
               </li>
               <li className="nav-item" onClick={closeNavbarAfterMenuItemClick}>
@@ -81,7 +84,7 @@ const Header = () => {
                   aria-current="page"
                   passHref
                 >
-                  About
+                  {t('common:About')}
                 </Link>
               </li>
               <li className="nav-item" onClick={closeNavbarAfterMenuItemClick}>
@@ -91,7 +94,7 @@ const Header = () => {
                   aria-current="page"
                   passHref
                 >
-                  Contact
+                  {t('common:Contact')}
                 </Link>
               </li>
               {/* <li className="nav-item dropdown">
@@ -119,7 +122,7 @@ const Header = () => {
                   <input
                     className={`form-control me-2 ${searchExpand ? "expanded" : ""}`}
                     type="search"
-                    placeholder="Search"
+                    placeholder={t('common:Search')}
                     aria-label="Search"
                     onBlur={()=>toggleSearchExpand(!searchExpand)}
                   />        
