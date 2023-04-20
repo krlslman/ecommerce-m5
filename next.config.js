@@ -6,7 +6,7 @@ const nextTranslate = require('next-translate-plugin');
 
 module.exports = {
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true,
   images: {
     domains: [
       'cdn.sanity.io',
