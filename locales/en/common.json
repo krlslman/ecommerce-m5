@@ -15,7 +15,7 @@
     "Search": "Search",
     
     "Your Cart": "Your Cart",
-    "x items": "{{number}} items",
+    "x items": "{{totalQuantities, number}} items",
     "Your shopping bag is empty": "Your shopping bag is empty",
     "Continue Shopping": "Continue Shopping",
 
