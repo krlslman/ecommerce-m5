@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { useStateContext } from "../context/StateContext";
@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 
 const Header = () => {  
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   const [ searchExpand, setSearchExpand ] = useState(false);  
@@ -29,8 +29,15 @@ const Header = () => {
   const router = useRouter();
   const handleLanguageChange = (e) => {
     const locale = e.target.value;
+    localStorage.setItem('selectedLang', locale);
     router.push(router.pathname, router.asPath, { locale });
   };
+  useEffect(() => {
+    const selectedLang = localStorage.getItem('selectedLang');
+    if (selectedLang) {
+      router.push(router.pathname, router.asPath, { locale: selectedLang });
+    }
+  }, []);
 
   return (
     <header className={` navbar2 `}>
@@ -155,7 +162,7 @@ const Header = () => {
           </button>
 
           <form className="ms-3 d-none d-lg-block">
-            <select name="language-picker-select" id="language-picker-select" onChange={handleLanguageChange} style={{textTransform:"uppercase", backgroundColor: "transparent", borderRadius: "8px"}}>
+            <select name="language-picker-select" id="language-picker-select" value={lang} onChange={handleLanguageChange} style={{textTransform:"uppercase", backgroundColor: "transparent", borderRadius: "8px"}}>
               {locales?.map((l) => (
                 <option key={l} value={l}>
                   {l}

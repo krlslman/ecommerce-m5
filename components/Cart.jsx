@@ -42,7 +42,7 @@ const Cart = () => {
         type="button"
         className="cart-heading"
         onClick={() => setShowCart(false)}>
-          <AiOutlineLeft />
+          <AiOutlineLeft className='left-arrow-svg'/>
           <span className="heading">{t('common:Your Cart')}</span>
           <span className="cart-num-items">({t('common:x items', {totalQuantities})})</span>
         </button>

@@ -25,7 +25,12 @@
     border: none;
     background-color: transparent;
   }
-  
+  .cart-heading .left-arrow-svg {
+    border: 1px solid #ec7500 !important;
+    border-radius: 1rem;
+    padding: 4px;
+    box-sizing: content-box;
+  }
   .cart-heading .heading{
     margin-left: 10px;
   }
