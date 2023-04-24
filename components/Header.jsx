@@ -37,7 +37,8 @@ const Header = () => {
     if (selectedLang) {
       router.push(router.pathname, router.asPath, { locale: selectedLang });
     }
-  }, [router]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <header className={` navbar2 `}>
