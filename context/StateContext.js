@@ -23,8 +23,7 @@ export const StateContext = ({ children }) => {
     useEffect(() => {
       const fetchExchangeRate = async () => {
         const rate = await getExchangeRate(1, 'USD', 'TRY');
-        setExchangeRate(rate);
-        console.log('rate: ', rate);
+        setExchangeRate(rate); // 19,40
       };
       fetchExchangeRate();
     }, []); 
@@ -32,26 +31,58 @@ export const StateContext = ({ children }) => {
     //! For translation
     const { t } = useTranslation();
 
+    //! For localStorage GET
+    useEffect(() => {
+      const localCartItems = window.localStorage.getItem('cartItems');
+      if ( localCartItems !== null ) setCartItems(JSON.parse(localCartItems))
+      
+      const localShowCart = window.localStorage.getItem('showCart');
+      if ( localShowCart !== null ) setShowCart(JSON.parse(localShowCart))
+      
+      const localTotalPrice = window.localStorage.getItem('totalPrice');
+      if ( localTotalPrice !== null ) setTotalPrice(JSON.parse(localTotalPrice))
+      
+      const localTotalQuantities = window.localStorage.getItem('totalQuantities');
+      if ( localTotalQuantities !== null ) setTotalQuantities(JSON.parse(localTotalQuantities))
+      
+      const localQty = window.localStorage.getItem('qty');
+      if ( localQty !== null ) setQty(JSON.parse(localQty))
+      
+      const localUser = window.localStorage.getItem('user');
+      if ( localUser !== null ) setUser(JSON.parse(localUser))
+      }, [])
+    //! For localStorage SET
+    useEffect(() => {
+      window.localStorage.setItem('cartItems', JSON.stringify(cartItems))
+      window.localStorage.setItem('showCart', JSON.stringify(showCart))
+      window.localStorage.setItem('totalPrice', JSON.stringify(totalPrice))
+      window.localStorage.setItem('totalQuantities', JSON.stringify(totalQuantities))
+      window.localStorage.setItem('qty', JSON.stringify(qty))
+      window.localStorage.setItem('user', JSON.stringify(user))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [cartItems])    
+    
     //! This function is used when -Add to Cart- button is clicked
     const onAdd = (product, quantity) => {
         // Check if the clicked item is in the cart
-        const checkProductInCart = cartItems.find((item) => item._id === product._id);
+        const checkProductInCart = cartItems.find((item) => item && item._id === product._id);
         // Calculate total price and quantity
         setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity )
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity )
 
         if(checkProductInCart){
-            const updatedCardItems = cartItems.map((cardProduct) => {
-                if(cardProduct._id === product._id) return {
-                    ...cardProduct,
-                    quantity: cardProduct.quantity + quantity
-                }
-            })
-            setCartItems(updatedCardItems);
-            
-
+          const updatedCardItems = cartItems.map((cardProduct) => {
+            if(cardProduct && cardProduct._id === product._id) {
+              return {
+                ...cardProduct,
+                quantity: cardProduct.quantity + quantity
+              }
+            }
+            return cardProduct;
+          });
+          setCartItems(updatedCardItems);
         } else {
-            product.quantity = quantity;
+          product.quantity = quantity;
             setCartItems([ ...cartItems, { ...product } ])
         }
         toast.success(t('common:add_to_cart_notification', {quantity: qty, productName: product.name} ))

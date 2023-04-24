@@ -37,7 +37,7 @@ const Header = () => {
     if (selectedLang) {
       router.push(router.pathname, router.asPath, { locale: selectedLang });
     }
-  }, []);
+  }, [router]);
 
   return (
     <header className={` navbar2 `}>
