@@ -11,9 +11,9 @@ import getStripe from '../lib/getStripe';
 import useTranslation from 'next-translate/useTranslation';
 
 const Cart = () => {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, showCart, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems, showCart, setShowCart, toggleCartItemQuanitity, onRemove, exchangeRate } = useStateContext();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -33,8 +33,8 @@ const Cart = () => {
 
     stripe.redirectToCheckout({ sessionId: data.id });
     // So we created one specific instance of checkout, user can come back later and proceed.   
-  }
-
+  } 
+  
   return (
     <div className="cart-wrapper" ref={cartRef} style={{ transform: showCart ? 'translateX(0)' : 'translateX(100%)', transition: 'all 0.5s ease-in-out' }}>
       <div className="cart-container" style={{ transform: showCart ? 'translateX(0)' : 'translateX(100%)', transition: 'all 0.5s ease-in-out' }}>
@@ -44,7 +44,6 @@ const Cart = () => {
         onClick={() => setShowCart(false)}>
           <AiOutlineLeft />
           <span className="heading">{t('common:Your Cart')}</span>
-          {/* <span className="cart-num-items">({totalQuantities} items)</span> */}
           <span className="cart-num-items">({t('common:x items', {totalQuantities})})</span>
         </button>
 
@@ -71,7 +70,9 @@ const Cart = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4>${item.price}</h4>
+                  <h4>
+                    {lang === 'en' ? `${item.price.toFixed(2)} $` : (exchangeRate*item.price ? `${(exchangeRate*item.price).toFixed(2)} ₺` : "-")}
+                  </h4>
                 </div>
                 <div className="flex bottom">
                   <div>
@@ -99,13 +100,13 @@ const Cart = () => {
           <>
             <div className='cart-bottom'>
               <div className='total'>
-                <h3>Subtotal:</h3>
-                <h3><strong>${totalPrice}</strong></h3>
+                <h3>{t('common:Subtotal')}</h3>
+                <h3><strong>{lang === 'en' ? `${totalPrice.toFixed(2)} $` : (exchangeRate*totalPrice ? `${(exchangeRate*totalPrice).toFixed(2)} ₺` : "-")}</strong></h3>
               </div>
               
               <div className="d-flex justify-content-end">
                 <button className="btn btn-fill m-0 mt-3 mt-lg-3" type='button' onClick={handleCheckout} >
-                  Pay with Stripe
+                  {t('common:pay_with_stripe')}
                 </button>
               </div>
               

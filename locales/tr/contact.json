@@ -5,5 +5,6 @@
     "Submit": "Gönder",
     "Message_placeholder": "Mesaj",
     "Name_placeholder": "İsim",
-    "Email_placeholder": "Email"    
+    "Email_placeholder": "Email",
+    "success_notification": "Mesajınız iletildi"
 }

@@ -1,10 +1,11 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { useRouter } from 'next/router';
+import useTranslation from 'next-translate/useTranslation';
 
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { auth } from '../firebase.js';
+import { getExchangeRate } from '../lib/exchangeRatesAPI.js';
 
 const Context = createContext();
 
@@ -16,6 +17,20 @@ export const StateContext = ({ children }) => {
     const [qty, setQty] = useState(1);
     const [user, setUser] = useState(null);
     const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [exchangeRate, setExchangeRate] = useState(null);
+
+    //! For USD exchange rate of TRY    
+    useEffect(() => {
+      const fetchExchangeRate = async () => {
+        const rate = await getExchangeRate(1, 'USD', 'TRY');
+        setExchangeRate(rate);
+        console.log('rate: ', rate);
+      };
+      fetchExchangeRate();
+    }, []); 
+
+    //! For translation
+    const { t } = useTranslation();
 
     //! This function is used when -Add to Cart- button is clicked
     const onAdd = (product, quantity) => {
@@ -39,7 +54,8 @@ export const StateContext = ({ children }) => {
             product.quantity = quantity;
             setCartItems([ ...cartItems, { ...product } ])
         }
-        toast.success(`${qty} ${product.name} added to your cart`)
+        toast.success(t('common:add_to_cart_notification', {quantity: qty, productName: product.name} ))
+
     }
 
     //! This function is used when delete button of a product (in cart) is clicked
@@ -140,6 +156,8 @@ export const StateContext = ({ children }) => {
             toggleDropdown,
             dropdownVisible,
             setDropdownVisible,
+            exchangeRate,
+            setExchangeRate,
           }}
         >
           {children}

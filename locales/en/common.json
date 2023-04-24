@@ -19,6 +19,11 @@
     "Your shopping bag is empty": "Your shopping bag is empty",
     "Continue Shopping": "Continue Shopping",
 
-    "Sort by": "Sort by"
+    "Sort by": "Sort by: ",
+
+    "add_to_cart_notification": "{{quantity}} {{productName}} added to your cart",
+
+    "pay_with_stripe": "Pay with Stripe",
+    "Subtotal": "Subtotal:"
 
 }

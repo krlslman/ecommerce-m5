@@ -9,14 +9,13 @@ import { useStateContext } from '../../../context/StateContext';
 import { urlFor, client } from '../../../lib/client';
 import useTranslation from 'next-translate/useTranslation';
 
-
 const ProductDetails = ({ products, product }) => {
-    const { t } = useTranslation()
+    const { t, lang } = useTranslation();    
 
     const { image, name, price } = product;
     const [indexImg, setIndexImg] = useState(0); 
-    const { qty, incQty, decQty, onAdd, buyNow } = useStateContext();
-  
+    const { qty, incQty, decQty, onAdd, buyNow, exchangeRate } = useStateContext();
+      
     return (
     <div>
         <div className="product-detail-container">
@@ -54,7 +53,9 @@ const ProductDetails = ({ products, product }) => {
                 </div>
                 <h4>{t('common:Details')}</h4>
                 <p>{}</p>
-                <p className="price">${price}</p>
+                <p className="price">  
+                    {lang === 'en' ? `${price.toFixed(2)} $` : (price*exchangeRate ? `${(price*exchangeRate).toFixed(2)} ₺` : "-")}
+                </p>
                 <div className="quantity">
                     <h3>{t('common:Quantity')}</h3>
                     <p className="quantity-desc">

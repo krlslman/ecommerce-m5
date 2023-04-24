@@ -6,5 +6,6 @@
     "Submit": "SUBMIT",
     "Message_placeholder": "Your message",
     "Name_placeholder": "Your name",
-    "Email_placeholder": "Your email"
+    "Email_placeholder": "Your email",
+    "success_notification": "Your message is sent successfully!"
    }

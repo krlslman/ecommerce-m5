@@ -19,5 +19,10 @@
     "Your shopping bag is empty": "Sepetinizde ürün bulunmamakta",
     "Continue Shopping": "Alışverişe Devam Et",
     
-    "Sort by": "Sırala: "
+    "Sort by": "Sırala: ",
+
+    "add_to_cart_notification": "{{quantity}} adet {{productName}} sepetinize eklendi",
+
+    "pay_with_stripe": "Stripe İle Öde",
+    "Subtotal": "Toplam:"
 }

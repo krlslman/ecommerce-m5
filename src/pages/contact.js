@@ -18,7 +18,7 @@ const Contact = () => {
     //   headers: { 'Content-Type': 'application/json' },
     //   body: JSON.stringify({ name, email, message })
     // });
-    toast.success(`Your message is sent successfully!`)
+    toast.success(t('contact:success_notification'))
     // setName('');
     // setEmail('');
     // setMessage('');
